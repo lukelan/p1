@@ -21,6 +21,7 @@
     instance.companySource = [SampleModel getCompanyAtIndex:randomIndex];
     
     int comment = (rand() % 40) + 30;
+    
 //    if (comment < 5) {
 //        comment = 0;
 //    }
