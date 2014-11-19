@@ -45,41 +45,36 @@
     self.lbState1.text = item.companySource;
     
     self.imgPR.hidden = YES;
-    
-    if (item.numberComment.intValue > 50) {
-        UIFont *newFont = [UIFont fontWithName:@"HiraKakuProN-W6" size:15];
-        self.lbTitle.font = newFont;
-        self.lbTitle1.font = newFont;
-        newFont = [UIFont fontWithName:@"HiraKakuProN-W6" size:13];
+     UIFont *lbFont =  [UIFont fontWithName:@"HiraKakuProN-W6" size:13];
+    self.lbTitle.font = self.lbTitle1.font = lbFont;
+    if (item.numberComment.intValue >= 50) {
+        UIFont * newFont = [UIFont fontWithName:@"HiraKakuProN-W6" size:13];
         self.lbNumberCmt.font = newFont;
         self.lbNumberCmt1.font = newFont;
         self.lbNumberCmt2.font = newFont;
         
-        self.lbNumberCmt.textColor = [UIColor colorWithRed:242.0f/255.0f green:97.0f/255.0f blue:111.0f/255.0f alpha:1.0f];
-        self.lbNumberCmt1.textColor = [UIColor colorWithRed:242.0f/255.0f green:97.0f/255.0f blue:111.0f/255.0f alpha:1.0f];
-        self.lbNumberCmt2.textColor = [UIColor colorWithRed:242.0f/255.0f green:97.0f/255.0f blue:111.0f/255.0f alpha:1.0f];
-        self.lbTitle.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
-        self.lbTitle1.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
+//        self.lbNumberCmt.textColor = [UIColor colorWithRed:242.0f/255.0f green:97.0f/255.0f blue:111.0f/255.0f alpha:1.0f];
+//        self.lbNumberCmt1.textColor = [UIColor colorWithRed:242.0f/255.0f green:97.0f/255.0f blue:111.0f/255.0f alpha:1.0f];
+//        self.lbNumberCmt2.textColor = [UIColor colorWithRed:242.0f/255.0f green:97.0f/255.0f blue:111.0f/255.0f alpha:1.0f];
+//        self.lbTitle.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
+//        self.lbTitle1.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
     }else{
-        self.imgCmt.image = [UIImage imageNamed:@"ic_count_cmt2.png"];
-        self.imgCmt1.image = [UIImage imageNamed:@"ic_count_cmt2.png"];
-        self.imgCmt2.image = [UIImage imageNamed:@"ic_count_cmt2.png"];
+//        self.imgCmt.image = [UIImage imageNamed:@"ic_count_cmt2.png"];
+//        self.imgCmt1.image = [UIImage imageNamed:@"ic_count_cmt2.png"];
+//        self.imgCmt2.image = [UIImage imageNamed:@"ic_count_cmt2.png"];
         
-        UIFont *newFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:12];
-        self.lbTitle.font = newFont;
-        self.lbTitle1.font = newFont;
-        newFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:11];
+       UIFont* newFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:11];
         self.lbNumberCmt.font = newFont;
         self.lbNumberCmt1.font = newFont;
         self.lbNumberCmt2.font = newFont;
         
         
-        
-        self.lbNumberCmt.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
-        self.lbNumberCmt1.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
-        self.lbNumberCmt2.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
-        self.lbTitle.textColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
-        self.lbTitle1.textColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
+//        
+//        self.lbNumberCmt.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
+//        self.lbNumberCmt1.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
+//        self.lbNumberCmt2.textColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
+//        self.lbTitle.textColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
+//        self.lbTitle1.textColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
     }
     
     if (item.image != nil) {
