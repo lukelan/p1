@@ -21,7 +21,7 @@
     instance.companySource = [SampleModel getCompanyAtIndex:randomIndex];
     
     int comment = (rand() % 40) + 30;
-    
+    	
 //    if (comment < 5) {
 //        comment = 0;
 //    }
@@ -72,6 +72,7 @@
 
 + (NSString*)getLinkAtIndex:(int)index
 {
+    return nil;
     switch (index) {
         case 0:
             return @"http://acron.lion.co.jp/pro/kedama.htm?utm_source=FO_MTB&utm_medium=MTB&utm_content=SP&utm_campaign=A";

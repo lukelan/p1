@@ -57,6 +57,7 @@
 		DB8709E91A1CF5B20009E6F0 /* bt_back_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8709E81A1CF5B20009E6F0 /* bt_back_off.png */; };
 		DB8709EB1A1CF60A0009E6F0 /* bt_cmt_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8709EA1A1CF60A0009E6F0 /* bt_cmt_off.png */; };
 		DB8709ED1A1CF6170009E6F0 /* bt_share_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8709EC1A1CF6170009E6F0 /* bt_share_off.png */; };
+		F0A80A7B1A1CFC80000F7703 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A80A7A1A1CFC80000F7703 /* comment.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		DB8709E81A1CF5B20009E6F0 /* bt_back_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_back_off.png; sourceTree = "<group>"; };
 		DB8709EA1A1CF60A0009E6F0 /* bt_cmt_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_cmt_off.png; sourceTree = "<group>"; };
 		DB8709EC1A1CF6170009E6F0 /* bt_share_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_share_off.png; sourceTree = "<group>"; };
+		F0A80A7A1A1CFC80000F7703 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				65EF61B91A1C970900E04A48 /* HomeCell.xib */,
 				65D194E41A1AF17000532213 /* image-sample-01.png */,
 				65D194E51A1AF17000532213 /* image-sample-02.png */,
+				F0A80A7A1A1CFC80000F7703 /* comment.png */,
 				65D194E61A1AF17000532213 /* image-sample-03.png */,
 				18DF83731A1B88DF007C425E /* image-sample-04.png */,
 				18DF83741A1B88DF007C425E /* image-sample-05.png */,
@@ -303,6 +306,7 @@
 				18DF83761A1B88DF007C425E /* image-sample-05.png in Resources */,
 				650F65431A1AEB950086A68F /* image-bg-white.png in Resources */,
 				65EF61C11A1C972E00E04A48 /* ico_pr@3x.png in Resources */,
+				F0A80A7B1A1CFC80000F7703 /* comment.png in Resources */,
 				65D194E91A1AF17000532213 /* image-sample-03.png in Resources */,
 				650F65501A1AEBA90086A68F /* DemoView.xib in Resources */,
 				18DF83751A1B88DF007C425E /* image-sample-04.png in Resources */,
