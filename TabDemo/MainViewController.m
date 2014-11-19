@@ -34,7 +34,7 @@
    
    //Tab A
    itemsA = [NSMutableArray array];
-    NSArray *strs = @[@"上場\n企業情報", @"トピック", @"経済", @"IT", @"医療・福祉・介護"];
+    NSArray *strs = @[@"上場\n企業情報", @"トピック", @"経済", @"IT", @"医療・福祉・介護", @"食・サービス・教育", @"人事", @"社会・政治", @"芸能", @"金融・不動産", @"求人", @"ブクマ", @"設定", @"お知らせ", @"Noブクマ"];
    for (int i = 0; i < [strs count]; i ++) {
       [itemsA addObject:strs[i]];
    }
@@ -99,7 +99,7 @@
 //    }
     
     switch (newIndex) {
-        case 4: // setting
+        case 12: // setting
         {
             SettingsView *aView = [SettingsView new];
             aView.frame = self.contentView.bounds;
