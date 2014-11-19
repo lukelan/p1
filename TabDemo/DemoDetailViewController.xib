@@ -7,6 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoDetailViewController">
             <connections>
+                <outlet property="srv" destination="DH6-LP-C9f" id="BeV-UL-eWh"/>
+                <outlet property="tf" destination="pWC-3w-KRH" id="2kA-wH-3Nv"/>
+                <outlet property="vContent" destination="KvY-EV-YjL" id="RpZ-WT-PI5"/>
+                <outlet property="vShare" destination="0It-yK-z35" id="qbR-iM-2wo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,45 +30,88 @@
                     </subviews>
                     <color key="backgroundColor" red="0.9490196704864502" green="0.38039219379425049" blue="0.43529415130615234" alpha="1" colorSpace="deviceRGB"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAVERまとめ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at6-05-MGd">
-                    <rect key="frame" x="0.0" y="112" width="320" height="20"/>
+                <view alpha="0.80000001192092896" contentMode="scaleToFill" id="qFl-gI-q1d">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fME-aj-K7q">
+                            <rect key="frame" x="0.0" y="0.0" width="56" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" backgroundImage="bt_back_off.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" backgroundImage="bt_back_on.png"/>
+                            <state key="highlighted" backgroundImage="bt_back_on.png"/>
+                            <connections>
+                                <action selector="btBack_Touched:" destination="-1" eventType="touchUpInside" id="6zH-4C-QAT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vZC-XZ-vx3">
+                            <rect key="frame" x="198" y="0.0" width="132" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                            <state key="normal" backgroundImage="bt_share_off.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" backgroundImage="bt_share_on.png"/>
+                            <state key="highlighted" backgroundImage="bt_share_on.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IDh-fB-Ear">
+                            <rect key="frame" x="74" y="0.0" width="132" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <state key="normal" backgroundImage="bt_cmt_off.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" backgroundImage="bt_cmt_on.png"/>
+                            <state key="highlighted" backgroundImage="bt_cmt_on.png"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.18823531270027161" green="0.18823531270027161" blue="0.19215688109397888" alpha="1" colorSpace="deviceRGB"/>
+                    <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DH6-LP-C9f">
+                    <rect key="frame" x="0.0" y="64" width="320" height="462"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="203" y="413"/>
+        </view>
+        <view contentMode="scaleToFill" id="KvY-EV-YjL">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="セレブの子どもたちがイイ感じで美男美女になってるセレブの子どもたちがイイ感じで美男美女になってる" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iYc-bQ-Udb">
+                    <rect key="frame" x="0.0" y="-7" width="320" height="50"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="11"/>
+                    <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="16"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D6K-I6-ymO">
-                    <rect key="frame" x="0.0" y="131" width="320" height="65"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAVERまとめ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="at6-05-MGd">
+                    <rect key="frame" x="0.0" y="40" width="320" height="20"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <string key="text" base64-UTF8="YES">
-A+acgOi/keaYoOeUu+ODh+ODk+ODpeODvOOBl+OBn+OCuOODp+ODi+ODvOODu+ODh+ODg+ODl+OBruWo
-mOOBruWPr+aEm+OBleOBq+OCr+ODqeOCr+ODqeOAguOAguiqv+OBueOBpuOBv+OBn+OCieOBu+OBi+OB
-q+OCguODgeODq+ODieODrOODs+OBn+OBoeOBjOe2muOAheODh+ODk+ODpeODvOOBl+OBpuOBhOOBpuOA
-geOBv+OCk+OBquacgOi/keaYoOeUu+ODh+ODk+ODpeODvOOBl+OBn+OCuOODp+ODi+ODvOODu+ODh+OD
-g+ODl+OBruWomOOBruWPr+aEm+OBleOBq+OCr+ODqeOCr+ODqeOAguOAguiqv+OBueOBpuOBv+OBn+OC
-ieOBu+OBi+OBq+OCguODgeODq+ODieODrOODs+OBn+OBoeOBjOe2muOAheODh+ODk+ODpeODvOOBl+OB
-puOBhOOBpuOAgeOBv+OCk+OBqg
-</string>
-                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="11"/>
+                    <color key="textColor" red="0.7137255072593689" green="0.7137255072593689" blue="0.7137255072593689" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="p2v-Na-04M">
-                    <rect key="frame" x="123" y="200" width="60" height="44"/>
+                    <rect key="frame" x="123" y="128" width="60" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="bt_bookmark_off.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TyQ-1f-w2V">
-                    <rect key="frame" x="190" y="200" width="120" height="44"/>
+                    <rect key="frame" x="191" y="128" width="120" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="bt_readmore_off.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K9E-A9-J6O">
-                    <rect key="frame" x="0.0" y="250" width="320" height="28"/>
+                    <rect key="frame" x="0.0" y="178" width="320" height="28"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.83921575546264648" green="0.45490199327468872" blue="0.48235297203063965" alpha="1" colorSpace="deviceRGB"/>
                     <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
@@ -72,7 +119,7 @@ puOBhOOBpuOAgeOBv+OCk+OBqg
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="0It-yK-z35" userLabel="View_KEYBOARD">
-                    <rect key="frame" x="0.0" y="279" width="320" height="104"/>
+                    <rect key="frame" x="0.0" y="207" width="320" height="104"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MFI-b7-Y2b">
@@ -116,63 +163,34 @@ puOBhOOBpuOAgeOBv+OCk+OBqg
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="19"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="ltb-dg-H4n"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
                 </view>
-                <view alpha="0.80000001192092896" contentMode="scaleToFill" id="qFl-gI-q1d">
-                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fME-aj-K7q">
-                            <rect key="frame" x="0.0" y="0.0" width="56" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <state key="normal" backgroundImage="bt_back_off.png">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="selected" backgroundImage="bt_back_on.png"/>
-                            <state key="highlighted" backgroundImage="bt_back_on.png"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vZC-XZ-vx3">
-                            <rect key="frame" x="198" y="0.0" width="132" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            <state key="normal" backgroundImage="bt_share_off.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="selected" backgroundImage="bt_share_on.png"/>
-                            <state key="highlighted" backgroundImage="bt_share_on.png"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IDh-fB-Ear">
-                            <rect key="frame" x="74" y="0.0" width="132" height="45"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                            <state key="normal" backgroundImage="bt_cmt_off.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="selected" backgroundImage="bt_cmt_on.png"/>
-                            <state key="highlighted" backgroundImage="bt_cmt_on.png"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.18823531270027161" green="0.18823531270027161" blue="0.19215688109397888" alpha="1" colorSpace="deviceRGB"/>
-                    <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="セレブの子どもたちがイイ感じで美男美女になってるセレブの子どもたちがイイ感じで美男美女になってる" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iYc-bQ-Udb">
-                    <rect key="frame" x="0.0" y="65" width="320" height="50"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D6K-I6-ymO">
+                    <rect key="frame" x="0.0" y="55" width="320" height="65"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <string key="text" base64-UTF8="YES">
+A+acgOi/keaYoOeUu+ODh+ODk+ODpeODvOOBl+OBn+OCuOODp+ODi+ODvOODu+ODh+ODg+ODl+OBruWo
+mOOBruWPr+aEm+OBleOBq+OCr+ODqeOCr+ODqeOAguOAguiqv+OBueOBpuOBv+OBn+OCieOBu+OBi+OB
+q+OCguODgeODq+ODieODrOODs+OBn+OBoeOBjOe2muOAheODh+ODk+ODpeODvOOBl+OBpuOBhOOBpuOA
+geOBv+OCk+OBquacgOi/keaYoOeUu+ODh+ODk+ODpeODvOOBl+OBn+OCuOODp+ODi+ODvOODu+ODh+OD
+g+ODl+OBruWomOOBruWPr+aEm+OBleOBq+OCr+ODqeOCr+ODqeOAguOAguiqv+OBueOBpuOBv+OBn+OC
+ieOBu+OBi+OBq+OCguODgeODq+ODieODrOODs+OBn+OBoeOBjOe2muOAheODh+ODk+ODpeODvOOBl+OB
+puOBhOOBpuOAgeOBv+OCk+OBqg
+</string>
+                    <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="12"/>
+                    <color key="textColor" red="0.65098041296005249" green="0.65098041296005249" blue="0.65098041296005249" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="203" y="413"/>
-        </view>
-        <view contentMode="scaleToFill" id="8Zi-T5-nGB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="-160" y="436"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-135" y="352"/>
         </view>
     </objects>
     <resources>

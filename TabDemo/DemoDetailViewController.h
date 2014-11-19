@@ -10,4 +10,9 @@
 
 @interface DemoDetailViewController : UIViewController
 
+@property(weak, nonatomic) IBOutlet UIScrollView                *srv;
+@property(strong, nonatomic) IBOutlet UIView                    *vContent;
+@property(weak, nonatomic) IBOutlet UITextField                 *tf;
+@property(strong, nonatomic) IBOutlet UIView                    *vShare;
+- (IBAction)btBack_Touched:(id)sender;
 @end

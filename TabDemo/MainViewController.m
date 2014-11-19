@@ -13,6 +13,7 @@
 #import "HBMacros.h"
 
 #import "SettingsView.h"
+#import "DemoDetailViewController.h"
 
 @interface MainViewController ()<HBTabBarDelegate, DemoViewDelegate, UIWebViewDelegate>
 {
@@ -183,7 +184,8 @@
         [self showWebView:YES url:model.linkUrl];
     }else//open detail
     {
-        
+        DemoDetailViewController *vc = [DemoDetailViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
