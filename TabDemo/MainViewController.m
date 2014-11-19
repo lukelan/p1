@@ -12,6 +12,8 @@
 #import "SampleModel.h"
 #import "HBMacros.h"
 
+#import "SettingsView.h"
+
 @interface MainViewController ()<HBTabBarDelegate, DemoViewDelegate, UIWebViewDelegate>
 {
    HBTabBar *hbTabBarA;
@@ -94,18 +96,39 @@
 //        default:
 //            break;
 //    }
+    
+    switch (newIndex) {
+        case 4: // setting
+        {
+            SettingsView *aView = [SettingsView new];
+            aView.frame = self.contentView.bounds;
+            [self.contentView addSubview:aView];
+            [self.contentView bringSubviewToFront:aView];
+            
+            if (currentView) {
+                [currentView removeFromSuperview];
+            }
+        }
+            break;
+            
+        default:
+        {
+            int numberItem = (rand() % 20) + 15;
+            DemoView *aView = [[DemoView alloc] initWithNumberData:numberItem];
+            aView.delegate =self;
+            aView.frame = self.contentView.bounds;
+            [self.contentView addSubview:aView];
+            [self.contentView bringSubviewToFront:aView];
+            
+            if (currentView) {
+                [currentView removeFromSuperview];
+            }
+            currentView = aView;
+        }
+            break;
+    }
 
-    int numberItem = (rand() % 20) + 15;
-    DemoView *aView = [[DemoView alloc] initWithNumberData:numberItem];
-    aView.delegate =self;
-   aView.frame = self.contentView.bounds;
-   [self.contentView addSubview:aView];
-   [self.contentView bringSubviewToFront:aView];
-   
-   if (currentView) {
-      [currentView removeFromSuperview];
-   }
-   currentView = aView;
+    
 }
 
 
