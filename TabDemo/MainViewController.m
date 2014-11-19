@@ -185,6 +185,7 @@
     }else//open detail
     {
         DemoDetailViewController *vc = [DemoDetailViewController new];
+        vc.data = model;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

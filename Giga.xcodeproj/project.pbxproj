@@ -57,6 +57,7 @@
 		DB8709E91A1CF5B20009E6F0 /* bt_back_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8709E81A1CF5B20009E6F0 /* bt_back_off.png */; };
 		DB8709EB1A1CF60A0009E6F0 /* bt_cmt_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8709EA1A1CF60A0009E6F0 /* bt_cmt_off.png */; };
 		DB8709ED1A1CF6170009E6F0 /* bt_share_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8709EC1A1CF6170009E6F0 /* bt_share_off.png */; };
+		DB8709EF1A1D109E0009E6F0 /* ic_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8709EE1A1D109E0009E6F0 /* ic_arrow.png */; };
 		F0A80A7B1A1CFC80000F7703 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = F0A80A7A1A1CFC80000F7703 /* comment.png */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		DB8709E81A1CF5B20009E6F0 /* bt_back_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_back_off.png; sourceTree = "<group>"; };
 		DB8709EA1A1CF60A0009E6F0 /* bt_cmt_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_cmt_off.png; sourceTree = "<group>"; };
 		DB8709EC1A1CF6170009E6F0 /* bt_share_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_share_off.png; sourceTree = "<group>"; };
+		DB8709EE1A1D109E0009E6F0 /* ic_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_arrow.png; sourceTree = "<group>"; };
 		F0A80A7A1A1CFC80000F7703 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 		DB8709D91A1CE68F0009E6F0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DB8709EE1A1D109E0009E6F0 /* ic_arrow.png */,
 				DB8709EC1A1CF6170009E6F0 /* bt_share_off.png */,
 				DB8709EA1A1CF60A0009E6F0 /* bt_cmt_off.png */,
 				DB8709E81A1CF5B20009E6F0 /* bt_back_off.png */,
@@ -340,6 +343,7 @@
 				DB8709EB1A1CF60A0009E6F0 /* bt_cmt_off.png in Resources */,
 				65EF61D51A1CB44500E04A48 /* img5.png in Resources */,
 				65EF61C01A1C972E00E04A48 /* ico_pr@2x.png in Resources */,
+				DB8709EF1A1D109E0009E6F0 /* ic_arrow.png in Resources */,
 				65D194E81A1AF17000532213 /* image-sample-02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

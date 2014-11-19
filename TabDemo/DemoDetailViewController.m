@@ -8,6 +8,7 @@
 
 #import "DemoDetailViewController.h"
 #import "HBMacros.h"
+#import "SampleModel.h"
 
 @interface DemoDetailViewController ()<UITextFieldDelegate>
 {
@@ -26,12 +27,13 @@
     self.srv.contentSize = self.vContent.bounds.size;
     rectShare = self.vShare.frame;
     
-    vTabHideKeyboard = [[UIView alloc] initWithFrame:self.view.bounds];
-    vTabHideKeyboard.backgroundColor = RGBA(0, 0, 0, 0.5);
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    [vTabHideKeyboard addGestureRecognizer:tap];
-    
 //    self.tf.inputAccessoryView = self.vShare;
+    
+    if (self.data) {
+        self.lbTitle.text = self.data.title;
+        self.lbDetail.text = self.data.des;
+        self.lbCompanySource.text = self.data.companySource;
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -53,6 +55,12 @@
         NSDictionary* userInfo = [notification userInfo];
         CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
         keyboardHeight = keyboardSize.height;
+    }
+    if (vTabHideKeyboard == nil) {
+        vTabHideKeyboard = [[UIView alloc] initWithFrame:self.view.bounds];
+        vTabHideKeyboard.backgroundColor = RGBA(0, 0, 0, 0.5);
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+        [vTabHideKeyboard addGestureRecognizer:tap];
     }
     [self.view addSubview: vTabHideKeyboard];
     [vTabHideKeyboard addSubview: self.vShare];
