@@ -117,7 +117,6 @@ UIImage* BUY_IMAGE_COLOR();
 UIImage* SELL_IMAGE_COLOR();
 UIImage* NAV_IMAGE_COLOR();
 UIImage* SCALE_IMAGE_TO_SIZE(UIImage* image, CGSize size);
-NSString* localizedString(NSString *string);
 
 CGFloat DegreesToRadians(CGFloat degrees);
 //System Version

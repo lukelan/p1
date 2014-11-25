@@ -14,11 +14,13 @@
 #define HeightExpandedItem 40
 #define HeightBorderBottom 5
 
+@class HBTabBar;
+
 @protocol HBTabBarDelegate <NSObject>
 
 @required
-- (BOOL)HBTabBarShouldSelectAtIndex:(int)index;
-- (void)HBTabBarDidChangeItemIndex:(int)newIndex fromIndex:(int)oldIndex;
+- (BOOL)HBTabBar:(HBTabBar*)tab shouldSelectAtIndex:(int)index;
+- (void)HBTabBar:(HBTabBar*)tab didChangeItemIndex:(int)newIndex fromIndex:(int)oldIndex;
 @end
 
 @interface HBTabBar : UIView<UIScrollViewDelegate>

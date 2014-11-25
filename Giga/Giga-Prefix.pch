@@ -11,6 +11,19 @@
 #endif
 
 #ifdef __OBJC__
-   #import <UIKit/UIKit.h>
-   #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import <QuartzCore/QuartzCore.h>
+
+//Define
+#import "Define.h"
+    //Base Objects
+#import "BaseModel.h"
+#import "BaseManagedObject.h"
+#import "BaseViewController.h"
+    //Vendors
+#import "Utils.h"
+    #import "HBMacros.h"
+#import "APIRequestManager.h"
 #endif

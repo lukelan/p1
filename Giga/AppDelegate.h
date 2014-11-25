@@ -13,4 +13,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UINavigationController        *nav;
+
+-(UIStoryboard*)mainStoryboard;
 @end

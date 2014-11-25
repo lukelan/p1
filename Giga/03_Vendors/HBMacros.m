@@ -358,15 +358,6 @@ UIImage* SCALE_IMAGE_TO_SIZE(UIImage* image, CGSize size)
     return newImage;
 }
 
-NSString* localizedString(NSString *string)
-{
-    //    NSString *path= [[NSBundle mainBundle] pathForResource:@"vi" ofType:@"lproj"];
-    //    NSBundle* languageBundle = [NSBundle bundleWithPath:path];
-    //    NSString *st = [languageBundle localizedStringForKey:string value:@"" table:nil];
-//    return [[appConfigInstance getCurrentLanguageBundle] localizedStringForKey:string value:@"" table:nil];
-    return NSLocalizedString(string, nil);
-}
-
 CGFloat DegreesToRadians(CGFloat degrees)
 {
     return degrees * M_PI / 180;

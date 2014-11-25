@@ -135,7 +135,6 @@
 
 #pragma mark - ROTATE
 
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
    return interfaceOrientation == UIInterfaceOrientationPortrait;

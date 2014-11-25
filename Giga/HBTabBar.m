@@ -76,9 +76,9 @@
       UIButton *currentBtn = (UIButton*)[scrollView viewWithTag:currenItem + 1];
       currentBtn.selected = YES;
 
-      BOOL shouldSelect = [self.delegate HBTabBarShouldSelectAtIndex:currenItem];
+       BOOL shouldSelect = [self.delegate HBTabBar:self shouldSelectAtIndex:currenItem];
       if (shouldSelect) {
-         [self.delegate HBTabBarDidChangeItemIndex:currenItem fromIndex:currenItem];
+         [self.delegate HBTabBar:self didChangeItemIndex:currenItem fromIndex:currenItem];
       }
    }
 }
@@ -87,9 +87,9 @@
 {
    int itemIndex = btn.tag - 1;
    if (currenItem != itemIndex) {
-      BOOL shouldSelect = [self.delegate HBTabBarShouldSelectAtIndex:itemIndex];
+      BOOL shouldSelect = [self.delegate HBTabBar:self shouldSelectAtIndex:itemIndex];
       if (shouldSelect) {
-         [self.delegate HBTabBarDidChangeItemIndex:itemIndex fromIndex:currenItem];
+         [self.delegate HBTabBar:self didChangeItemIndex:itemIndex fromIndex:currenItem];
          
          if (currenItem != -1) {
             UIButton *lastBtn = (UIButton*)[scrollView viewWithTag:currenItem + 1];
