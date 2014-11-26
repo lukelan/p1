@@ -7,16 +7,25 @@
 //
 
 #import "RecruitDetailViewController.h"
+#import "WebDetailViewController.h"
+#import "CommentItem.h"
 
-@interface RecruitDetailViewController ()
-
+@interface RecruitDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
+{
+    NSInteger           expandingSection;
+    NSMutableArray      *ar
+}
 @end
 
 @implementation RecruitDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.lbJobContentTitle.text = localizedString(@"Job Content");
+    self.lbRecruitTargetTitle.text = localizedString(@"Recruit Target");
+    self.lbLocationTitle.text = localizedString(@"Location");
+    self.lbSalaryTitle.text = localizedString(@"Salary");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +33,66 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setValueForContent {
+    // set value for label in detail
 }
-*/
+
+
+- (IBAction)btOpenWebDetail_Touched:(id)sender {
+    WebDetailViewController *vc = [WebDetailViewController new];
+    [self.navigationController pushViewController:vc animated: YES];
+}
+
+- (IBAction)btBookmark_Touched:(id)sender {
+    
+}
+
+- (IBAction)btRelativeInfo_Touched:(id)sender {
+    
+}
+
+- (void)loadComment {
+    
+}
+
+
+#pragma mark - UITableViewDataSource & UITableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _arComment.count + 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }
+    
+    CommentItem *comment = _arComment[section - 1];
+    if (section == expandingSection) {
+        return comment.arReply.count + 2;
+    } else {
+        return 1;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return self.vContentDetail.frame.size.height;
+    }
+    
+    return 10;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentTableHeaderCell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentTableHeaderCell"];
+            [cell addSubview: self.vContentDetail];
+        }
+        return cell;
+    }
+}
 
 @end
