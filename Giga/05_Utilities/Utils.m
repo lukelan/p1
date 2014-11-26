@@ -124,4 +124,34 @@ UIFont* NORMAL_FONT_WITH_SIZE(CGFloat size)
     return [UIFont fontWithName:FONT_NORMAL size:size];
 }
 
+//for refresh/load more
+
++ (NSString*)getUpdatedStringFromDate:(NSDate*)aDate
+{
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        dateFormatter.locale = [NSLocale currentLocale];
+    }
+    return [NSString stringWithFormat:@"%@: %@",localizedString(@"Last Updated"), [dateFormatter stringFromDate:aDate]];
+}
+
+NSString* RANDOM_STRING(int lenght)
+{
+    static NSString *letters = @"アイドル誌関係者に聞いた 「取材しづらいジャニーズ」と「全員が惚れるジャニーズ」 - サイゾーウーマン新作映画「インターステラー」がスゴすぎて全米のSFファンが大興奮";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: lenght];
+    for (int i=0; i<lenght; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random() % [letters length]]];
+    }
+    return randomString;
+}
+
+UIImage* RANDOM_IMAGE(int imageIndex)
+{
+    int index = (imageIndex % 9) + 1;
+    NSString *imageName = [NSString stringWithFormat:@"img%d",index];
+    return [UIImage imageNamed:imageName];
+}
 @end

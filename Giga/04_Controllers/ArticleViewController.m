@@ -7,7 +7,7 @@
 //
 
 #import "ArticleViewController.h"
-#import "CategoryModel.h"
+#import "ArticleCategoryModel.h"
 #import "NormalArticleCell.h"
 #import "ArticleModel.h"
 #import "SVPullToRefresh.h"
@@ -17,7 +17,7 @@
 
 @interface ArticleViewController()<MNMBottomPullToRefreshManagerClient>
 {
-    int pageIndex;
+    NSUInteger pageIndex;
     NSMutableArray *tableData;
     
     //refresh
@@ -89,7 +89,7 @@
     }];
 }
 
-- (void)setCategory:(CategoryModel *)category
+- (void)setCategory:(ArticleCategoryModel *)category
 {
     _category = category;
     refreshing = YES;
@@ -141,11 +141,13 @@
 -(void)doneLoadMoreData {
     loadingMore = NO;
     [_loadMoreFooterView tableViewReloadFinished];
+    [_loadMoreFooterView refreshLastUpdatedDate:[NSDate date]];
 }
 
 -(void)doneRefreshData {
     refreshing = NO;
     [self.tbArticles.pullToRefreshView stopAnimating];
+    [self.tbArticles.pullToRefreshView setSubtitle:[Utils getUpdatedStringFromDate:[NSDate date]] forState:SVPullToRefreshStateAll];
 }
 
 - (BOOL)shouldLoadData:(BOOL)isLoadMore

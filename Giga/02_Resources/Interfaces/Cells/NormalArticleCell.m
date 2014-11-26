@@ -22,6 +22,7 @@
     self.lbTitle.font = BOLD_FONT_WITH_SIZE(14);
     
     self.lbComments.text = localizedString(@"Comments");
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (IBAction)btnCompanyTouchUnInSide:(id)sender {

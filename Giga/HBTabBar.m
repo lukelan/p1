@@ -27,19 +27,9 @@
       
       int startX = 0;
       for (int i = 0; i < items.count; i++) {
+          HBTabItem *item = items[i];
          CGRect frameButton = CGRectMake(startX, self.frame.size.height - HeightItem - HeightBorderBottom, WidthItem, HeightItem + 2);
-         HBTabItem *btn = [HBTabItem buttonWithType:UIButtonTypeCustom andFrame:frameButton];
-         [btn setBackgroundImage:[UIImage imageNamed:@"image-bg-white"] forState:UIControlStateNormal];
-         [btn setBackgroundImage:[UIImage imageNamed:@"image-bg-blue"] forState:UIControlStateSelected];
-         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-         [btn setTitleColor:RGB(25, 178, 249) forState:UIControlStateNormal];
-          [btn.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
-         btn.layer.cornerRadius = 3.0f;
-         btn.layer.masksToBounds = YES;
-          btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-          // you probably want to center it
-          btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-         [btn setTitle:items[i] forState:UIControlStateNormal];
+          HBTabItemView *btn = [HBTabItemView tabViewWithItem:item andFrame:frameButton];
 
          btn.tag = i + 1;
          [btn addTarget:self action:@selector(clickOnItem:) forControlEvents:UIControlEventTouchUpInside];
@@ -60,20 +50,20 @@
 
 - (void)reloadData
 {
-   for (UIButton *btn in scrollView.subviews) {
-      if ([btn isKindOfClass:[UIButton class]]) {
+   for (HBTabItemView *btn in scrollView.subviews) {
+      if ([btn isKindOfClass:[HBTabItemView class]]) {
          btn.selected = NO;
       }
    }
    if (currenItem == -1) {
       //select first item
-      UIButton *firstBtn = (UIButton*)[scrollView viewWithTag:1];
-      if (firstBtn) {
-         [self clickOnItem:firstBtn];
+      HBTabItemView *firstTabView = (HBTabItemView*)[scrollView viewWithTag:1];
+      if (firstTabView) {
+         [self clickOnItem:firstTabView.mainButton];
       }
    }else{
       //if has one item was selected
-      UIButton *currentBtn = (UIButton*)[scrollView viewWithTag:currenItem + 1];
+      HBTabItemView *currentBtn = (HBTabItemView*)[scrollView viewWithTag:currenItem + 1];
       currentBtn.selected = YES;
 
        BOOL shouldSelect = [self.delegate HBTabBar:self shouldSelectAtIndex:currenItem];
@@ -92,10 +82,11 @@
          [self.delegate HBTabBar:self didChangeItemIndex:itemIndex fromIndex:currenItem];
          
          if (currenItem != -1) {
-            UIButton *lastBtn = (UIButton*)[scrollView viewWithTag:currenItem + 1];
-            lastBtn.selected = NO;
+            HBTabItemView *lastTabView = (HBTabItemView*)[scrollView viewWithTag:currenItem + 1];
+            lastTabView.selected = NO;
          }
-         btn.selected = YES;
+         HBTabItemView *currentTabView = (HBTabItemView*)[scrollView viewWithTag:btn.tag];
+         currentTabView.selected = YES;
          
          currenItem = itemIndex;
          //scroll to center
@@ -128,21 +119,80 @@
 @end
 
 
-@implementation HBTabItem
+@implementation HBTabItemView
+@synthesize imgBackground, lbTitle, mainButton;
 
-+ (id)buttonWithType:(UIButtonType)buttonType andFrame:(CGRect)frame
++ (instancetype)tabViewWithItem:(HBTabItem*)item andFrame:(CGRect)frame
 {
-   HBTabItem *instance = [super buttonWithType:buttonType];
-   instance.frame = frame;
-   return instance;
+    HBTabItemView *instance = [[HBTabItemView alloc] initWithFrame:frame];
+    instance.backgroundColor = [UIColor clearColor];
+    
+    instance.imgBackground = [[UIImageView alloc] initWithFrame:instance.bounds];
+    instance.imgBackground.contentMode = UIViewContentModeScaleToFill;
+    instance.imgBackground.image = [UIImage imageNamed:@"image-bg-white"];
+    instance.imgBackground.userInteractionEnabled = NO;
+    instance.imgBackground.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    
+    instance.lbTitle = [[UILabel alloc] initWithFrame:instance.bounds];
+    instance.lbTitle.numberOfLines = 0;
+    instance.lbTitle.textAlignment = NSTextAlignmentCenter;
+    instance.lbTitle.lineBreakMode = NSLineBreakByWordWrapping;
+    instance.backgroundColor = [UIColor clearColor];
+    instance.lbTitle.text = item.title;
+    [instance.lbTitle setFont:[UIFont systemFontOfSize:14.0f]];
+    instance.lbTitle.userInteractionEnabled = NO;
+    
+    instance.layer.cornerRadius = 3.0f;
+    instance.layer.masksToBounds = YES;
+    
+    instance.mainButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    instance.mainButton.backgroundColor = [UIColor clearColor];
+    instance.mainButton.frame = instance.bounds;
+    
+    [instance addSubview:instance.imgBackground];
+    [instance addSubview:instance.lbTitle];
+    [instance addSubview:instance.mainButton];
+
+    
+    if (item.type == ENUM_TAP_TYPE_ADVANCE) {
+        [instance addSubview:item.subContentView];
+        [instance bringSubviewToFront:item.subContentView];
+    }
+    return instance;
 }
 
 - (void)setSelected:(BOOL)selected
 {
-   [super setSelected:selected];
+    _selected = selected;
+    self.mainButton.selected = self.selected;
+    [imgBackground setImage:[UIImage imageNamed:self.selected ?  @"image-bg-blue" :  @"image-bg-white"]];
+    [lbTitle setTextColor:self.selected ? [UIColor whiteColor] : RGB(25, 178, 249) ];
    UIView *parentView = self.superview;
    int heightOfButton = self.selected ? HeightExpandedItem : HeightItem;
    self.frame = RECT_WITH_Y_HEIGHT(self.frame, parentView.frame.size.height - heightOfButton - HeightBorderBottom, heightOfButton + 2);
+}
+
+- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
+{
+    [self.mainButton addTarget:target action:action forControlEvents:controlEvents];
+}
+
+- (void)setTag:(NSInteger)tag
+{
+    [super setTag:tag];
+    self.mainButton.tag = tag;
+}
+@end
+
+
+@implementation HBTabItem
++ (instancetype)initWithTitle:(NSString*)title type:(ENUM_TAP_TYPE)type contentView:(UIView*)contentView
+{
+    HBTabItem *instance = [[HBTabItem alloc] init];
+    instance.title = title;
+    instance.type = type;
+    instance.subContentView = contentView;
+    return instance;
 }
 
 @end

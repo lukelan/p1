@@ -36,6 +36,25 @@
 - (int)currentItemIndex;
 @end
 
-@interface HBTabItem : UIButton
-+ (id)buttonWithType:(UIButtonType)buttonType andFrame:(CGRect)frame;
+
+typedef enum {
+    ENUM_TAP_TYPE_SIMPLE,
+    ENUM_TAP_TYPE_ADVANCE
+}ENUM_TAP_TYPE;
+
+@interface HBTabItem :NSObject
+@property (copy, nonatomic) NSString *title;
+@property (assign, nonatomic) ENUM_TAP_TYPE type;
+@property (strong, nonatomic) UIView *subContentView;
++ (instancetype)initWithTitle:(NSString*)title type:(ENUM_TAP_TYPE)type contentView:(UIView*)contentView;
+@end
+
+@interface HBTabItemView : UIView
+@property (assign, nonatomic) BOOL selected;
+@property (strong, nonatomic) UIButton *mainButton;
+@property (strong, nonatomic) UIImageView *imgBackground;
+@property (strong, nonatomic) UILabel *lbTitle;
++ (instancetype)tabViewWithItem:(HBTabItem*)item andFrame:(CGRect)frame;
+
+- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 @end

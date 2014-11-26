@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Hoang Ho. All rights reserved.
 //
 
-#import "ArticleCell.h"
+#import "BaseCell.h"
 
-@interface NormalArticleCell : ArticleCell
+@interface NormalArticleCell : BaseCell
 @property (weak, nonatomic) IBOutlet UIImageView *imgArticleImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *lbTitle;

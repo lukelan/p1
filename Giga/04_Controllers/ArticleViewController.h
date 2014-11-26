@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class CategoryModel;
+@class ArticleCategoryModel;
 
 @interface ArticleViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) CategoryModel *category;
+@property (strong, nonatomic) ArticleCategoryModel *category;
 
 @property (weak, nonatomic) IBOutlet UITableView *tbArticles;
 @end

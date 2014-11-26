@@ -9,10 +9,11 @@
 #import "TabViewController.h"
 #import "HBTabBar.h"
 
+#import "ListCompanyInfoViewController.h"
 #import "ArticleViewController.h"
 #import "BookmarksViewController.h"
 
-#import "CategoryModel.h"
+#import "ArticleCategoryModel.h"
 
 @interface TabViewController ()<HBTabBarDelegate>
 {
@@ -39,29 +40,41 @@
     [self.smcMain setTitle:localizedString(@"Career Change") forSegmentAtIndex:0];
     [self.smcMain setTitle:localizedString(@"Part-time") forSegmentAtIndex:1];
     [self.smcMain setTitle:localizedString(@"Official Staff") forSegmentAtIndex:2];
+    
     //Tab A
     itemsA = [NSMutableArray array];
-    [itemsA addObject:localizedString(@"New Topics")];
-    [itemsA addObject:localizedString(@"Business")];
-    [itemsA addObject:localizedString(@"Service")];
-    [itemsA addObject:localizedString(@"Medical Line")];
-    [itemsA addObject:localizedString(@"Education")];
-    [itemsA addObject:localizedString(@"Bookmark")];
-    [itemsA addObject:localizedString(@"Settings")];
-    [itemsA addObject:localizedString(@"Notification")];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Company Infor") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"New Topics") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Business") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Service") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Medical Line") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Nursing") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"IT-Creative") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Manual Labor") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Education") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Bookmark") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Settings") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    
+    //a bit difference with notification
+    UILabel *notificatonLabel = [[UILabel alloc] initWithFrame:CGRectMake(75 - 15, 0, 15, 15)];//75 is width of tab view
+    notificatonLabel.backgroundColor = [UIColor redColor];
+    notificatonLabel.text = @"10";
+    notificatonLabel.layer.cornerRadius = notificatonLabel.frame.size.width/2;
+    notificatonLabel.layer.masksToBounds = YES;
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Notification") type:ENUM_TAP_TYPE_ADVANCE contentView:notificatonLabel]];
 
     hbTabBarA = [[HBTabBar alloc] initWithWithFrame:self.tabContainerView.bounds items:itemsA];
     hbTabBarA.delegate = self;
     [self.tabContainerView addSubview:hbTabBarA];
     
     
-    itemsB = [NSMutableArray array];
-    for (int i = 0; i < [itemsA count]; i ++) {
-        [itemsB addObject:itemsA[i]];
-    }
-    hbTabBarB = [[HBTabBar alloc] initWithWithFrame:self.tabContainerView.bounds items:itemsB];
-    hbTabBarB.delegate = self;
-    [self.tabContainerView addSubview:hbTabBarB];
+//    itemsB = [NSMutableArray array];
+//    for (int i = 0; i < [itemsA count]; i ++) {
+//        [itemsB addObject:itemsA[i]];
+//    }
+//    hbTabBarB = [[HBTabBar alloc] initWithWithFrame:self.tabContainerView.bounds items:itemsB];
+//    hbTabBarB.delegate = self;
+//    [self.tabContainerView addSubview:hbTabBarB];
     
     hbTabBarB.hidden = YES;
     [hbTabBarA reloadData];
@@ -85,7 +98,9 @@
 - (void)addViewController:(UIViewController*)vc
 {
     [self addChildViewController:vc];
+    
     vc.view.frame = self.contentView.bounds;
+    
     [self.contentView addSubview:vc.view];
     [self.contentView bringSubviewToFront:vc.view];
 }
@@ -95,6 +110,14 @@
     id newVC;
     if (tab == hbTabBarA) {
         switch (newIndex) {
+            case ENUM_CAREER_CHANGE_COMPANY_INFO:
+            {
+                ListCompanyInfoViewController *tempVC = [[ListCompanyInfoViewController alloc] init];
+                [self addViewController:tempVC];
+                newVC = tempVC;
+                break;
+            }
+                
             case ENUM_CAREER_CHANGE_BOOK_MARK:
             {
                 BookmarksViewController *tempVC = [[BookmarksViewController alloc] init];
@@ -113,13 +136,14 @@
             {
                 break;
             }
-            default:
+            default://list articles
             {
                 ArticleViewController *articleVC = [ArticleViewController new];
                 [self addViewController:articleVC];
                 
-                CategoryModel *category = [CategoryModel new];
-                category.categoryTitle = itemsA[newIndex];
+                HBTabItem *item = itemsA[newIndex];
+                ArticleCategoryModel *category = [ArticleCategoryModel new];
+                category.categoryTitle = item.title;
                 category.categoryID = [NSString stringWithFormat:@"%d",newIndex + 1];
                 category.categoryType = newIndex + 1;
                 articleVC.category = category;

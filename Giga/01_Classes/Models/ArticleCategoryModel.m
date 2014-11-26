@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Hoang Ho. All rights reserved.
 //
 
-#import "CategoryModel.h"
+#import "ArticleCategoryModel.h"
 
-@implementation CategoryModel
+@implementation ArticleCategoryModel
 
 @end

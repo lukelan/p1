@@ -64,7 +64,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line-space.png" id="Opp-2S-DCH">
-                        <rect key="frame" x="-10" y="88" width="720" height="1"/>
+                        <rect key="frame" x="-10" y="88" width="1040" height="1"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>

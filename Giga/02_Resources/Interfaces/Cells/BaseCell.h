@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArticleCell : UITableViewCell{
+@interface BaseCell : UITableViewCell{
     id model;
     BOOL isAppliedStyle;
 }

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Hoang Ho. All rights reserved.
 //
 
-#import "ArticleCell.h"
+#import "BaseCell.h"
 
-@implementation ArticleCell
+@implementation BaseCell
 
 - (void)awakeFromNib {
     // Initialization code

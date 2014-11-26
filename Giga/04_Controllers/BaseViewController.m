@@ -23,9 +23,9 @@
         self = [[SharedAppDelegate mainStoryboard] instantiateViewControllerWithIdentifier:[self.class description]];
     }
     @catch (NSException *exception) {
-        if (!self) {
-            self = [super init];
-        }
+        self = [super init];
+//        if (!self) {
+//        }
     }
 
     return self;
