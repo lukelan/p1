@@ -13,7 +13,7 @@
 @interface RecruitDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     NSInteger           expandingSection;
-    NSMutableArray      *ar
+    NSMutableArray      *ar;
 }
 @end
 
@@ -93,6 +93,7 @@
         }
         return cell;
     }
+    return nil;
 }
 
 @end
