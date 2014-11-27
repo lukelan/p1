@@ -22,7 +22,7 @@
     if (isAppliedStyle) return;
     isAppliedStyle = YES;
     
-    self.lbAdsTitle.font = BOLD_FONT_WITH_SIZE(12);
+    self.lbAdsTitle.font = BOLD_FONT_WITH_SIZE(13);
     self.lbAdsDes.font = BOLD_FONT_WITH_SIZE(14);
     self.lbAdsSource.font = NORMAL_FONT_WITH_SIZE(12);
     
