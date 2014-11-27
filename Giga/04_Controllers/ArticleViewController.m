@@ -110,7 +110,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 91;
+    return 90;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,6 +136,7 @@
 {
     [_loadMoreFooterView tableViewReleased];
 }
+
 #pragma mark - Load More
 
 -(void)doneLoadMoreData {

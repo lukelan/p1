@@ -14,6 +14,7 @@
 #import "BookmarksViewController.h"
 
 #import "ArticleCategoryModel.h"
+#import "RecruitArticleViewController.h"
 
 @interface TabViewController ()<HBTabBarDelegate>
 {
@@ -38,30 +39,37 @@
 - (void)loadInterface
 {
     [self.smcMain setTitle:localizedString(@"Career Change") forSegmentAtIndex:0];
-    [self.smcMain setTitle:localizedString(@"Part-time") forSegmentAtIndex:1];
-    [self.smcMain setTitle:localizedString(@"Official Staff") forSegmentAtIndex:2];
+    [self.smcMain setTitle:localizedString(@"Part-time Job") forSegmentAtIndex:1];
     
     //Tab A
     itemsA = [NSMutableArray array];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Company Infor") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"New Topics") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Business") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Service") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Medical Line") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Nursing") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"IT-Creative") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Manual Labor") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Education") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Company\nInformation") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Topic") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Economy") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"IT") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Medical Care・Welfare・Care") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Food, Service and Education") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Human Resources") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Social・Political") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Entertainment") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Financial\nReal Estate") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Job") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
+    
     [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Bookmark") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
     [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Settings") type:ENUM_TAP_TYPE_SIMPLE contentView:nil]];
     
     //a bit difference with notification
-    UILabel *notificatonLabel = [[UILabel alloc] initWithFrame:CGRectMake(75 - 15, 0, 15, 15)];//75 is width of tab view
-    notificatonLabel.backgroundColor = [UIColor redColor];
-    notificatonLabel.text = @"10";
+    int marginRight = 1;
+    int heightOfLabel = 17;
+    UILabel *notificatonLabel = [[UILabel alloc] initWithFrame:CGRectMake(75 - heightOfLabel - marginRight, (35 - heightOfLabel)/2, heightOfLabel, heightOfLabel)];//75 is width of tab view, 35 is height of tabView
+    notificatonLabel.backgroundColor = RGB(255, 150, 0);
+    notificatonLabel.text = @"9";
+    notificatonLabel.font = NORMAL_FONT_WITH_SIZE(12);
+    notificatonLabel.textColor = [UIColor whiteColor];
     notificatonLabel.layer.cornerRadius = notificatonLabel.frame.size.width/2;
     notificatonLabel.layer.masksToBounds = YES;
-    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Notification") type:ENUM_TAP_TYPE_ADVANCE contentView:notificatonLabel]];
+    notificatonLabel.textAlignment = NSTextAlignmentCenter;
+    [itemsA addObject:[HBTabItem initWithTitle:localizedString(@"Notifications") type:ENUM_TAP_TYPE_ADVANCE contentView:notificatonLabel]];
 
     hbTabBarA = [[HBTabBar alloc] initWithWithFrame:self.tabContainerView.bounds items:itemsA];
     hbTabBarA.delegate = self;
@@ -113,6 +121,14 @@
             case ENUM_CAREER_CHANGE_COMPANY_INFO:
             {
                 ListCompanyInfoViewController *tempVC = [[ListCompanyInfoViewController alloc] init];
+                [self addViewController:tempVC];
+                newVC = tempVC;
+                break;
+            }
+                
+            case ENUM_CAREER_CHANGE_ECONOMY:
+            {
+                RecruitArticleViewController *tempVC = [[RecruitArticleViewController alloc] init];
                 [self addViewController:tempVC];
                 newVC = tempVC;
                 break;

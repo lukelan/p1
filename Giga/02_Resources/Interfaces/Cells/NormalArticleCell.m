@@ -12,7 +12,10 @@
 
 @implementation NormalArticleCell
 
-
++ (CGFloat)getCellHeight
+{
+    return 91;
+}
 - (void)applyStyleIfNeed
 {
     if (isAppliedStyle) return;
@@ -21,7 +24,7 @@
     self.lbComments.font = self.lbNumberComments.font = self.btnCompany.titleLabel.font = lbFont;
     self.lbTitle.font = BOLD_FONT_WITH_SIZE(14);
     
-    self.lbComments.text = localizedString(@"Comments");
+    self.lbComments.text = localizedString(@"Comment");
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
@@ -37,22 +40,25 @@
         self.lbNumberComments.text = [NSString stringWithFormat:@"%d",article.numberComment.intValue];
         [self.btnCompany setTitle:article.site forState:UIControlStateNormal];
         if (article.numberComment.integerValue >= 50) {
-            self.lbNumberComments.font = BOLD_FONT_WITH_SIZE(14);
+            self.lbNumberComments.font = BOLD_FONT_WITH_SIZE(15);
         }else
             self.lbNumberComments.font = NORMAL_FONT_WITH_SIZE(13);
         
         int titleLeftMargin = 5;
         if (article.imageUrl && article.imageUrl.length > 0) {
             self.imgArticleImage.hidden = NO;
-            self.commentView.frame = RECT_WITH_X(self.commentView.frame, self.imgArticleImage.frame.origin.x - self.commentView.frame.size.width - titleLeftMargin);
             [self.imgArticleImage sd_setImageWithURL:[NSURL URLWithString:article.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             }];
-            self.lbTitle.frame = RECT_WITH_WIDTH(self.lbTitle.frame, self.imgArticleImage.frame.origin.x - titleLeftMargin * 2);
+            CGRect titleFrame = RECT_WITH_X(self.lbTitle.frame, self.imgArticleImage.frame.origin.x + self.imgArticleImage.frame.size.width + titleLeftMargin);
+            titleFrame = RECT_WITH_WIDTH(titleFrame, self.frame.size.width - titleFrame.origin.x - titleLeftMargin);
+            self.lbTitle.frame = titleFrame;
         }else{
             self.imgArticleImage.hidden = YES;
-            self.commentView.frame = RECT_WITH_X(self.commentView.frame, self.frame.size.width - self.commentView.frame.size.width - titleLeftMargin);
-            self.lbTitle.frame = RECT_WITH_WIDTH(self.lbTitle.frame, self.frame.size.width - titleLeftMargin * 2);
+            CGRect titleFrame = RECT_WITH_X(self.lbTitle.frame, titleLeftMargin);
+            titleFrame = RECT_WITH_WIDTH(titleFrame, self.frame.size.width - titleFrame.origin.x - titleLeftMargin);
+            self.lbTitle.frame = titleFrame;
         }
+        self.btnCompany.frame = RECT_WITH_X_WIDTH(self.btnCompany.frame, self.lbTitle.frame.origin.x,self.commentView.frame.origin.x - self.lbTitle.frame.origin.x - 5);
     }
 }
 

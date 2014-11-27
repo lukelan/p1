@@ -1,25 +1,24 @@
 //
-//  CompanyCell.m
+//  BookmarkCompanyCell.m
 //  Giga
 //
-//  Created by Hoang Ho on 11/26/14.
+//  Created by Hoang Ho on 11/27/14.
 //  Copyright (c) 2014 Hoang Ho. All rights reserved.
 //
 
-#import "CompanyCell.h"
-#import "CompanyModel.h"
+#import "BookmarkCompanyCell.h"
 #import "UIImageView+WebCache.h"
+#import "CompanyModel.h"
 
-@implementation CompanyCell
+@implementation BookmarkCompanyCell
 
 - (void)applyStyleIfNeed{
     if (isAppliedStyle) {
         return;
     }
     isAppliedStyle = YES;
-    self.lbCategory.font = NORMAL_FONT_WITH_SIZE(13);
-    self.lbCompanyDes.font = NORMAL_FONT_WITH_SIZE(13);
     self.lbCompanyName.font = BOLD_FONT_WITH_SIZE(15);
+    self.lbCompanyDes.font = NORMAL_FONT_WITH_SIZE(13);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
@@ -27,17 +26,13 @@
 {
     [super setObject:obj];
     CompanyModel *company = obj;
-//    self.lbCategory.text = company.categoryName;
-    self.lbCategory.text = RANDOM_STRING(5);
     self.lbCompanyName.text = company.companyName;
     self.lbCompanyDes.text = company.companyDes;
-    if (company.logoUrl && company.logoUrl.length > 0) {
-        [self.imgCompanyLogo sd_setImageWithURL:[NSURL URLWithString:company.logoUrl]];
-    }
+    self.imgCompany.image = RANDOM_IMAGE(rand() % 100);
 }
 
 + (CGFloat)getCellHeight
 {
-    return 101;
+    return 91;
 }
 @end

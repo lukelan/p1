@@ -98,20 +98,19 @@ NSString* localizedString(NSString *key)
 {
     static NSDictionary * jsonLanguage;
     if (!jsonLanguage) {
-//        NSString* filePath = @"String_en";
-//        NSString* fileRoot = [[NSBundle mainBundle]
-//                              pathForResource:filePath ofType:@"txt"];
-//        NSString* fileContents =
-//        [NSString stringWithContentsOfFile:fileRoot
-//                                  encoding:NSUTF8StringEncoding error:nil];
-//        NSData *webData = [fileContents dataUsingEncoding:NSUTF8StringEncoding];
-//        
-//        NSError *error;
-//        jsonLanguage = [NSJSONSerialization JSONObjectWithData:webData options:0 error:&error];
+        NSString* filePath = @"language";
+        NSString* fileRoot = [[NSBundle mainBundle]
+                              pathForResource:filePath ofType:@"json"];
+        NSString* fileContents =
+        [NSString stringWithContentsOfFile:fileRoot
+                                  encoding:NSUTF8StringEncoding error:nil];
+        NSData *webData = [fileContents dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSError *error;
+        jsonLanguage = [NSJSONSerialization JSONObjectWithData:webData options:0 error:&error];
     }
-//    NSString *tt = [jsonLanguage objectForKey:key];
-//    return tt ? tt: key;
-    return key;
+    NSString *tt = [jsonLanguage objectForKey:key];
+    return tt ? tt: key;
 }
 
 UIFont* BOLD_FONT_WITH_SIZE(CGFloat size)
@@ -135,7 +134,7 @@ UIFont* NORMAL_FONT_WITH_SIZE(CGFloat size)
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
         dateFormatter.locale = [NSLocale currentLocale];
     }
-    return [NSString stringWithFormat:@"%@: %@",localizedString(@"Last Updated"), [dateFormatter stringFromDate:aDate]];
+    return [NSString stringWithFormat:@"%@: %@",localizedString(@"Last updated"), [dateFormatter stringFromDate:aDate]];
 }
 
 NSString* RANDOM_STRING(int lenght)

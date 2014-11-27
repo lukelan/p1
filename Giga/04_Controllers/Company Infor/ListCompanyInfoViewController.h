@@ -14,6 +14,7 @@
 - (IBAction)btnSearchCompanyTouchUpInside:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *tbCompanyInfo;
+@property (weak, nonatomic) IBOutlet UILabel *lbBookmarkCompanies;
 
 @end
 

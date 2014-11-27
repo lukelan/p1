@@ -13,6 +13,8 @@
     BOOL isAppliedStyle;
 }
 
++ (CGFloat)getCellHeight;
+
 - (void)setObject:(id)obj;
 - (void)applyStyleIfNeed;
 @end

@@ -17,8 +17,8 @@
 @interface ListCompanyViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     CustomNavigationView *customNavigation;
-    NSMutableArray *tableData;
 }
+
 @end
 
 @implementation ListCompanyViewController
@@ -31,21 +31,18 @@
 - (void)setCategory:(CompanyCategoryModel *)category
 {
     _category =category;
-    customNavigation.lbTitle.text = self.category.categoryTitle;
-    
-    [self loadData];
 }
 
 - (void)dealloc
 {
-    [tableData removeAllObjects];
-    tableData = nil;
+    [self.tableData removeAllObjects];
+    self.tableData = nil;
 }
 
 - (void)loadInterface
 {
     customNavigation = [[CustomNavigationView alloc] initWithType:ENUM_NAVIGATION_TYPE_BACK frame:self.headerView.bounds];
-    customNavigation.lbTitle.text = self.category.categoryTitle;
+    customNavigation.lbTitle.text = self.title;
     void(^actionCallback)(ENUM_NAVIGATION_ACTION_TYPE) = ^(ENUM_NAVIGATION_ACTION_TYPE type)
     {
         if (type == ENUM_NAVIGATION_TYPE_BACK) {
@@ -56,37 +53,27 @@
     [self.headerView addSubview:customNavigation];
 
     [self.tbCompanies registerNib:[UINib nibWithNibName:CompanyCellID bundle:nil] forCellReuseIdentifier:CompanyCellID];
-    self.tbCompanies.rowHeight = 101;
+    self.tbCompanies.rowHeight = [CompanyCell getCellHeight];
 }
 
-- (void)loadData
+- (void)setTableData:(NSMutableArray *)tableData
 {
-    //sample data
-    tableData = [NSMutableArray array];
-    for (int i = 1; i <= 50; i++) {
-        NSString *categoryName = RANDOM_STRING((rand() % 10) + 5);
-        NSString *companyName = RANDOM_STRING((rand() % 10) + 5);
-        NSString *companyDes = RANDOM_STRING((rand() % 30) + 15);
-        CompanyModel *company = [CompanyModel new];
-        company.categoryName = categoryName;
-        company.companyName = companyName;
-        company.companyDes = companyDes;
-        [tableData addObject:company];
-    }
+    _tableData = tableData;
     [self.tbCompanies reloadData];
 }
-
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.tableData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return tableData.count;
+    NSDictionary *dict = self.tableData[section];
+    NSArray *companies = dict[@"Companies"];
+    return companies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,10 +81,47 @@
     CompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:CompanyCellID];
     [cell applyStyleIfNeed];
     
-    CompanyModel *company = tableData[indexPath.row];
+    NSDictionary *dict = self.tableData[indexPath.section];
+    NSArray *companies = dict[@"Companies"];
+    
+    CompanyModel *company = companies[indexPath.row];
     [cell setObject:company];
     
     return cell;
+}
+
+#define SECTION_HEIGHT 30.0f
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if ([self tableView:tableView numberOfRowsInSection:section] == 0) {
+        return 0;
+    }
+    return SECTION_HEIGHT;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, SECTION_HEIGHT)];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, SECTION_HEIGHT-1)];
+    label.opaque = YES;
+    label.backgroundColor = [UIColor whiteColor];
+    label.textColor = [UIColor blackColor];
+    label.font = NORMAL_FONT_WITH_SIZE(15);
+    label.textAlignment = NSTextAlignmentLeft;
+    [view addSubview:label];
+    
+    NSDictionary *dict = self.tableData[section];
+    label.text = dict[@"CategoryName"];
+    
+    UIImageView *lineImage = [[UIImageView alloc] initWithFrame:CGRectMake(-20, SECTION_HEIGHT - 1, 400, 1)];
+    lineImage.alpha = 0.8f;
+    [lineImage setImage:[UIImage imageNamed:@"line-1"]];
+    [view addSubview:lineImage];
+    
+    return view;
 }
 
 #pragma mark - UITableViewDelegate

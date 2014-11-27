@@ -24,7 +24,8 @@
 
 - (void)loadInterface
 {
-    
+    self.lbNoBookmark.text = localizedString(@"There is no acticle bookmark");
+    self.lbNoBookmark.font = NORMAL_FONT_WITH_SIZE(14);
 }
 
 - (void)loadData

@@ -14,4 +14,6 @@
 @property (strong, nonatomic) CompanyCategoryModel *category;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tbCompanies;
+
+@property (strong, nonatomic) NSMutableArray *tableData;
 @end

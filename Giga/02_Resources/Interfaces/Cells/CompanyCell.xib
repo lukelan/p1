@@ -34,10 +34,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="company_logo.png" id="zvX-zh-Lrz">
-                        <rect key="frame" x="229" y="8" width="83" height="20"/>
+                        <rect key="frame" x="229" y="8" width="83" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line-1.png" id="zNh-Ow-JE7">
+                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line-1.png" id="zNh-Ow-JE7">
                         <rect key="frame" x="0.0" y="98" width="320" height="2"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     </imageView>
@@ -53,7 +53,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="company_logo.png" width="99" height="15"/>
+        <image name="company_logo.png" width="110" height="36"/>
         <image name="line-1.png" width="640" height="3"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

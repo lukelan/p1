@@ -23,7 +23,6 @@
                                         <segments>
                                             <segment title="転職"/>
                                             <segment title="アルバイト"/>
-                                            <segment title="転職"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>

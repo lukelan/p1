@@ -157,6 +157,7 @@
     if (item.type == ENUM_TAP_TYPE_ADVANCE) {
         [instance addSubview:item.subContentView];
         [instance bringSubviewToFront:item.subContentView];
+        instance.lbTitle.textAlignment = NSTextAlignmentLeft;
     }
     return instance;
 }

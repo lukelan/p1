@@ -20,6 +20,11 @@
     // Configure the view for the selected state
 }
 
++ (CGFloat)getCellHeight
+{
+    return 44;//for default
+}
+
 - (void)setObject:(id)obj
 {
     model = obj;

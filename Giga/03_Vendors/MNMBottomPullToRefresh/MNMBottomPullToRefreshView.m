@@ -143,7 +143,7 @@
 //        - (UILabel *)titleLabel {
 //            if(!_titleLabel) {
 //                _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 210, 20)];
-//                _titleLabel.text = NSLocalizedString(@"Pull to refresh...",);
+//                _titleLabel.text = localizedString(@"Pull to refresh...",);
 //                _titleLabel.font = [UIFont boldSystemFontOfSize:14];
 //                _titleLabel.backgroundColor = [UIColor clearColor];
 //                _titleLabel.textColor = textColor;
@@ -275,7 +275,7 @@
 		[formatter setAMSymbol:@"AM"];
 		[formatter setPMSymbol:@"PM"];
 		[formatter setDateFormat:@"MM/dd/yyyy hh:mm:a"];
-		_lastUpdatedLabel.text = [NSString stringWithFormat:@"%@: %@",localizedString(@"Last Updated"), [formatter stringFromDate:date]];
+		_lastUpdatedLabel.text = [NSString stringWithFormat:@"%@: %@",localizedString(@"Last updated"), [formatter stringFromDate:date]];
 		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 		

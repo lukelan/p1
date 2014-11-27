@@ -28,4 +28,8 @@
     self.lbTitle.text = category.categoryTitle;
 }
 
++ (CGFloat)getCellHeight
+{
+    return 61;
+}
 @end
