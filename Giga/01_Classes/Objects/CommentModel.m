@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Hoang Ho. All rights reserved.
 //
 
-#import "CommentItem.h"
+#import "CommentModel.h"
 
-@implementation CommentItem
+@implementation CommentModel
 
 @end

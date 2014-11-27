@@ -11,6 +11,8 @@
 #import "AdvertiseArticleCell.h"
 #import "RecruitArticleCell.h"
 
+#import "RecruitDetailViewController.h"
+
 #import "ArticleModel.h"
 #import "RecruitArticleModel.h"
 #import "AdsModel.h"
@@ -195,6 +197,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    id object = tableData[indexPath.row];
+    if ([object isMemberOfClass:[RecruitArticleModel class]]) {
+        RecruitDetailViewController *vc = [RecruitDetailViewController new];
+        vc.recruitArticleModel = object;
+        [self.navigationController pushViewController:vc animated: YES];
+        
+    }
     
 }
 

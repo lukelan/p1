@@ -27,6 +27,7 @@
                 <outlet property="lbRecruitTargetTitle" destination="PsM-m5-Ro8" id="2Vk-9G-Gd7"/>
                 <outlet property="lbSalaryDetail" destination="OZz-YZ-CRP" id="xKU-7X-PhT"/>
                 <outlet property="lbSalaryTitle" destination="TD0-aA-alm" id="E74-M5-M2i"/>
+                <outlet property="tbv" destination="tm7-iS-WQa" id="LJ6-tV-ixJ"/>
                 <outlet property="vContentDetail" destination="dwU-Qg-qFi" id="j4w-tb-qde"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,7 +37,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tm7-iS-WQa">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tm7-iS-WQa">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,6 +61,9 @@
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btBack_Touched:" destination="-1" eventType="touchUpInside" id="lND-Mj-2d1"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_post_comment.png" id="o51-9c-w4q">
                             <rect key="frame" x="62" y="12" width="21" height="21"/>
@@ -75,7 +79,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1pL-Wu-o8e">
                             <rect key="frame" x="55" y="2" width="117" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button">
+                            <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -93,9 +97,12 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pnr-6p-eiB">
                             <rect key="frame" x="186" y="4" width="117" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button">
+                            <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btShare_Touched:" destination="-1" eventType="touchUpInside" id="KXJ-kQ-lUG"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -132,8 +139,8 @@
                     <color key="textColor" red="0.36862745099999999" green="0.36862745099999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="company_logo.png" id="dod-Ok-Ffr">
-                    <rect key="frame" x="263" y="15" width="49" height="8"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="company_logo.png" id="dod-Ok-Ffr">
+                    <rect key="frame" x="263" y="8" width="49" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="株式会社翔陽(Show-you.co.ltd)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EeL-4Z-Jop">
@@ -246,7 +253,7 @@
                     <rect key="frame" x="0.0" y="394" width="320" height="87"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp2.png" id="ziT-6I-B81">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp2.png" id="ziT-6I-B81">
                             <rect key="frame" x="8" y="0.0" width="80" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -325,7 +332,7 @@
         <image name="bt_bookmark_bkg.png" width="573" height="88"/>
         <image name="bt_link_page_bgk.png" width="568" height="88"/>
         <image name="bt_relative_info_bkg.png" width="568" height="88"/>
-        <image name="company_logo.png" width="99" height="15"/>
+        <image name="company_logo.png" width="110" height="36"/>
         <image name="icon_post_comment.png" width="42" height="42"/>
         <image name="icon_share_recruit.png" width="38" height="42"/>
         <image name="temp2.png" width="160" height="120"/>

@@ -7,6 +7,7 @@
 //
 
 #import "WebDetailViewController.h"
+#import "ShareSocial.h"
 
 @interface WebDetailViewController ()
 
@@ -21,6 +22,8 @@
  
     if (self.pageLink.length > 0) {
         [self.wvContent loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.pageLink]]];
+    } else {
+        [self.wvContent loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://google.com"]]];
     }
 }
 
@@ -34,7 +37,7 @@
 }
 
 - (IBAction)btShare_Touched:(id)sender {
-    
+    [[ShareSocial share] showShareSelectionInView:self.view];
 }
 
 

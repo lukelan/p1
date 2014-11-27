@@ -31,4 +31,18 @@
     "Last updated"                      : "最終更新",
     "There is no acticle bookmark"      : "ブックマークした記事がありません",
     "Full-time Employee"                : "正社員",
+    "Cancel"                            : "キャンセル",
+    "Facebook"                          : "Facebookでシェア",
+    "Twitter"                           : "Twitterでシェア",
+    "LINE"                              : "LINEでシェア",
+    "Copy Link"                         : "リンクをコピー",
+    "Job Content"                       : "仕事内容",
+    "Recruit Target"                    : "対象",
+    "Location"                          : "勤務地",
+    "Salary"                            : "給与",
+    "This comment is inappropriate"     : "このコメントは不適切と 判断して通報しますか？",
+    "NO"                                : "いいえ",
+    "OK"                                : "はい",
+    "Share"                             : "シェアする",
+    "Post Comment"                      : "コメントする"
 }

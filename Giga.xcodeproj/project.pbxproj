@@ -129,11 +129,15 @@
 		DB4D86331A263A27008E8429 /* MNMBottomPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D86271A263A27008E8429 /* MNMBottomPullToRefreshView.m */; };
 		DB4D86341A263A27008E8429 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D862B1A263A27008E8429 /* UIScrollView+SVInfiniteScrolling.m */; };
 		DB4D86351A263A27008E8429 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D862D1A263A27008E8429 /* UIScrollView+SVPullToRefresh.m */; };
-		DB4D86391A264DF1008E8429 /* CommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D86381A264DF1008E8429 /* CommentItem.m */; };
+		DB4D86391A264DF1008E8429 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D86381A264DF1008E8429 /* CommentModel.m */; };
 		DB8709D11A1CDB4D0009E6F0 /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8709D01A1CDB4D0009E6F0 /* SettingsView.m */; };
 		DB8709D31A1CDB750009E6F0 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8709D21A1CDB750009E6F0 /* SettingsView.xib */; };
 		DB8709D71A1CE5640009E6F0 /* DemoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8709D51A1CE5640009E6F0 /* DemoDetailViewController.m */; };
 		DB8709D81A1CE5640009E6F0 /* DemoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8709D61A1CE5640009E6F0 /* DemoDetailViewController.xib */; };
+		DB8CAF251A275C97002E2A2A /* ShareSocial.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8CAF241A275C97002E2A2A /* ShareSocial.m */; };
+		DB8CAF271A276E75002E2A2A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8CAF261A276E75002E2A2A /* Social.framework */; };
+		DB8CAF2B1A279413002E2A2A /* CommentInputTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8CAF291A279413002E2A2A /* CommentInputTextCell.m */; };
+		DB8CAF2C1A279413002E2A2A /* CommentInputTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8CAF2A1A279413002E2A2A /* CommentInputTextCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,14 +311,20 @@
 		DB4D862B1A263A27008E8429 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		DB4D862C1A263A27008E8429 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		DB4D862D1A263A27008E8429 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
-		DB4D86371A264DF1008E8429 /* CommentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentItem.h; sourceTree = "<group>"; };
-		DB4D86381A264DF1008E8429 /* CommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentItem.m; sourceTree = "<group>"; };
+		DB4D86371A264DF1008E8429 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		DB4D86381A264DF1008E8429 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		DB8709CF1A1CDB4D0009E6F0 /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
 		DB8709D01A1CDB4D0009E6F0 /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
 		DB8709D21A1CDB750009E6F0 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		DB8709D41A1CE5640009E6F0 /* DemoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoDetailViewController.h; sourceTree = "<group>"; };
 		DB8709D51A1CE5640009E6F0 /* DemoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoDetailViewController.m; sourceTree = "<group>"; };
 		DB8709D61A1CE5640009E6F0 /* DemoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoDetailViewController.xib; sourceTree = "<group>"; };
+		DB8CAF231A275C97002E2A2A /* ShareSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareSocial.h; sourceTree = "<group>"; };
+		DB8CAF241A275C97002E2A2A /* ShareSocial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSocial.m; sourceTree = "<group>"; };
+		DB8CAF261A276E75002E2A2A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		DB8CAF281A279413002E2A2A /* CommentInputTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInputTextCell.h; sourceTree = "<group>"; };
+		DB8CAF291A279413002E2A2A /* CommentInputTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInputTextCell.m; sourceTree = "<group>"; };
+		DB8CAF2A1A279413002E2A2A /* CommentInputTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentInputTextCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +332,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8CAF271A276E75002E2A2A /* Social.framework in Frameworks */,
 				6516EF571A241BEA001747D4 /* CoreData.framework in Frameworks */,
 				650F65141A1AEB6E0086A68F /* CoreGraphics.framework in Frameworks */,
 				650F65161A1AEB6E0086A68F /* UIKit.framework in Frameworks */,
@@ -374,6 +385,7 @@
 		650F65101A1AEB6E0086A68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB8CAF261A276E75002E2A2A /* Social.framework */,
 				6516EF561A241BEA001747D4 /* CoreData.framework */,
 				650F65111A1AEB6E0086A68F /* Foundation.framework */,
 				650F65131A1AEB6E0086A68F /* CoreGraphics.framework */,
@@ -579,6 +591,9 @@
 				DB105BCC1A24FE3C007669D5 /* CommentCell.h */,
 				DB105BCD1A24FE3C007669D5 /* CommentCell.m */,
 				DB105BCE1A24FE3C007669D5 /* CommentCell.xib */,
+				DB8CAF281A279413002E2A2A /* CommentInputTextCell.h */,
+				DB8CAF291A279413002E2A2A /* CommentInputTextCell.m */,
+				DB8CAF2A1A279413002E2A2A /* CommentInputTextCell.xib */,
 				65F1CEC41A26C1AE00250E29 /* BookmarkCompanyCell.h */,
 				65F1CEC51A26C1AE00250E29 /* BookmarkCompanyCell.m */,
 				65F1CEC71A26C1CE00250E29 /* BookmarkCompanyCell.xib */,
@@ -671,8 +686,10 @@
 		DB4D86361A264D73008E8429 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				DB4D86371A264DF1008E8429 /* CommentItem.h */,
-				DB4D86381A264DF1008E8429 /* CommentItem.m */,
+				DB4D86371A264DF1008E8429 /* CommentModel.h */,
+				DB4D86381A264DF1008E8429 /* CommentModel.m */,
+				DB8CAF231A275C97002E2A2A /* ShareSocial.h */,
+				DB8CAF241A275C97002E2A2A /* ShareSocial.m */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -759,6 +776,7 @@
 				65D588101A24231E006B7106 /* image-bg-blue.png in Resources */,
 				65F1CEC31A26BCD400250E29 /* language.json in Resources */,
 				653C611A1A26F47800AA223D /* RecruitArticleViewController.xib in Resources */,
+				DB8CAF2C1A279413002E2A2A /* CommentInputTextCell.xib in Resources */,
 				DB105BDC1A2504E6007669D5 /* bt_dislike_bkg.png in Resources */,
 				65D588081A24231E006B7106 /* comment.png in Resources */,
 				DB8709D81A1CE5640009E6F0 /* DemoDetailViewController.xib in Resources */,
@@ -858,6 +876,7 @@
 				650F654F1A1AEBA90086A68F /* DemoView.m in Sources */,
 				6516EF541A241AED001747D4 /* BaseModel.m in Sources */,
 				65F1CEB11A26B99400250E29 /* CompanyModel.m in Sources */,
+				DB8CAF251A275C97002E2A2A /* ShareSocial.m in Sources */,
 				65F1CEBC1A26B99E00250E29 /* ListCompanyCategoryViewController.m in Sources */,
 				65D5881E1A24239B006B7106 /* ArticleViewController.m in Sources */,
 				65D588211A2423B1006B7106 /* BaseViewController.m in Sources */,
@@ -886,7 +905,7 @@
 				65F1CEA11A26B97A00250E29 /* CompanyCell.m in Sources */,
 				65F1CEA71A26B98200250E29 /* CustomNavigationView.m in Sources */,
 				DB8709D71A1CE5640009E6F0 /* DemoDetailViewController.m in Sources */,
-				DB4D86391A264DF1008E8429 /* CommentItem.m in Sources */,
+				DB4D86391A264DF1008E8429 /* CommentModel.m in Sources */,
 				DB4D86351A263A27008E8429 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				DB105BCF1A24FE3C007669D5 /* CommentCell.m in Sources */,
 				65D588271A242446006B7106 /* ArticleModel.m in Sources */,
@@ -895,6 +914,7 @@
 				651D3D201A248F8E008F4C4F /* BookmarksViewController.m in Sources */,
 				DB105BC01A24E770007669D5 /* RecruitDetailViewController.m in Sources */,
 				DB8709D11A1CDB4D0009E6F0 /* SettingsView.m in Sources */,
+				DB8CAF2B1A279413002E2A2A /* CommentInputTextCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

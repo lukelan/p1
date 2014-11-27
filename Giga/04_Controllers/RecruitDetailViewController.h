@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+@class RecruitArticleModel;
 
 @interface RecruitDetailViewController : BaseViewController
 /// View Content
@@ -33,10 +34,13 @@
 @property(weak, nonatomic) IBOutlet UILabel                 *lbCommentSection;
 
 ////
+@property(strong,nonatomic) RecruitArticleModel             *recruitArticleModel;
 @property(weak, nonatomic) IBOutlet UITableView             *tbv;
 @property(strong, nonatomic) NSMutableArray                 *arComment;
 
 - (IBAction)btOpenWebDetail_Touched:(id)sender;
 - (IBAction)btBookmark_Touched:(id)sender;
 - (IBAction)btRelativeInfo_Touched:(id)sender;
+- (IBAction)btShare_Touched:(id)sender;
+- (IBAction)btBack_Touched:(id)sender;
 @end

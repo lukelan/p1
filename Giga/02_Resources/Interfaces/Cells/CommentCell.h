@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CommentItem;
+@class CommentModel;
 @class CommentCell;
 
 @protocol CommentCellDelegate <NSObject>
@@ -17,6 +17,7 @@
 @interface CommentCell : UITableViewCell
 @property(weak, nonatomic) IBOutlet UILabel         *lbName;
 @property(weak, nonatomic) IBOutlet UILabel         *lbPostDate;
+@property(weak, nonatomic) IBOutlet UIView          *vBtReport;
 @property(weak, nonatomic) IBOutlet UILabel         *lbPostText;
 @property(weak, nonatomic) IBOutlet UILabel         *lbBtReportTitle;
 @property(weak, nonatomic) IBOutlet UIView          *vButtonContainer;
@@ -26,17 +27,25 @@
 @property(weak, nonatomic) IBOutlet UIButton        *btDisLike;
 @property(weak, nonatomic) IBOutlet UILabel         *lbLike;
 @property(weak, nonatomic) IBOutlet UILabel         *lbDisLike;
+@property(weak, nonatomic) IBOutlet UILabel         *lbSeparateLine;
+
+// view ratio
+@property(weak, nonatomic) IBOutlet  UIView         *vRatio;
+@property(weak, nonatomic) IBOutlet UILabel         *lbRatioLike;
+@property(weak, nonatomic) IBOutlet UILabel         *lbSumVote;
 
 @property(weak, nonatomic) id<CommentCellDelegate>  delegate;
-@property (strong, nonatomic) CommentItem           *data;
+@property (strong, nonatomic) CommentModel           *data;
 @property (strong, nonatomic) NSIndexPath           *indexPath;
 
-+(float)heightWithItem:(CommentItem *)item;
-- (void)setContentWithItem:(CommentItem *)item;
++(float)heightWithItem:(CommentModel *)item;
+- (void)setContentWithItem:(CommentModel *)item;
 
 -(instancetype)initForComment;
 -(instancetype)initForReply;
 
 -(IBAction)btReport_Touched:(id)sender;
 -(IBAction)btExpandColapse_Touched:(id)sender;
+-(IBAction)btLike_Touched:(id)sender;
+-(IBAction)btDisLike_Touched:(id)sender;
 @end
