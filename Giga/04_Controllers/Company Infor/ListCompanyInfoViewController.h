@@ -10,6 +10,7 @@
 
 @interface ListCompanyInfoViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *btnSearch;
 @property (weak, nonatomic) IBOutlet UILabel *lbSearchCompany;
 - (IBAction)btnSearchCompanyTouchUpInside:(id)sender;
 

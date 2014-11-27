@@ -17,8 +17,8 @@
         return;
     }
     isAppliedStyle = YES;
-    self.lbCompanyName.font = BOLD_FONT_WITH_SIZE(15);
-    self.lbCompanyDes.font = NORMAL_FONT_WITH_SIZE(13);
+    self.lbCompanyName.font = BOLD_FONT_WITH_SIZE(14);
+    self.lbCompanyDes.font = NORMAL_FONT_WITH_SIZE(12);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

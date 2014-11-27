@@ -31,8 +31,14 @@
 - (void)loadInterface{
     self.lbSearchCompany.text = localizedString(@"Search Company");
     self.lbBookmarkCompanies.text = localizedString(@"Bookmark Companies");
+    self.lbBookmarkCompanies.font = NORMAL_FONT_WITH_SIZE(14);
+    self.lbSearchCompany.font = NORMAL_FONT_WITH_SIZE(14);
+    
     [self.tbCompanyInfo registerNib:[UINib nibWithNibName:BookmarkCompanyCellID bundle:nil] forCellReuseIdentifier:BookmarkCompanyCellID];
     self.tbCompanyInfo.rowHeight = [BookmarkCompanyCell getCellHeight];
+    
+    UIView *searchView = self.btnSearch.superview;
+    searchView.layer.cornerRadius = 5.0f;
 }
 
 - (void)loadData{

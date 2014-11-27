@@ -139,7 +139,7 @@ UIFont* NORMAL_FONT_WITH_SIZE(CGFloat size)
 
 NSString* RANDOM_STRING(int lenght)
 {
-    static NSString *letters = @"アイドル誌関係者に聞いた 「取材しづらいジャニーズ」と「全員が惚れるジャニーズ」 - サイゾーウーマン新作映画「インターステラー」がスゴすぎて全米のSFファンが大興奮";
+    static NSString *letters = @"誌関係聞取材日産自動車 最悪場合燃料が漏 を国に届け出まし 興奮再発防止を命る行政処分を経済産業省は不正競争防止法";
     NSMutableString *randomString = [NSMutableString stringWithCapacity: lenght];
     for (int i=0; i<lenght; i++) {
         [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random() % [letters length]]];

@@ -22,9 +22,9 @@
         return;
     }
     isAppliedStyle = YES;
-    self.lbCompanyDes.font = NORMAL_FONT_WITH_SIZE(13);
+    self.lbCompanyDes.font = NORMAL_FONT_WITH_SIZE(12);
     self.lbCompanyName.font = BOLD_FONT_WITH_SIZE(14);
-    self.lbRecruitType.font = NORMAL_FONT_WITH_SIZE(13);
+    self.lbRecruitType.font = NORMAL_FONT_WITH_SIZE(12);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

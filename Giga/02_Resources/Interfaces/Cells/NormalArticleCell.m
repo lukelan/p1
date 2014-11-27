@@ -16,6 +16,7 @@
 {
     return 91;
 }
+
 - (void)applyStyleIfNeed
 {
     if (isAppliedStyle) return;
