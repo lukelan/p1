@@ -128,8 +128,11 @@
         rect.size.width = total / MaxBlue * Max100Percent;
         rect.origin.x = self.frame.size.width - 45 - rect.size.width;
         self.vRatio.frame = rect;
-        
-        self.lbRatioLike.frame = RECT_WITH_WIDTH(self.lbRatioLike.frame,(float)item.numLike  / total  * rect.size.width );
+        if (total == 0) {
+            self.lbRatioLike.frame = RECT_WITH_WIDTH(self.lbRatioLike.frame,0 );
+        } else {
+            self.lbRatioLike.frame = RECT_WITH_WIDTH(self.lbRatioLike.frame,(float)item.numLike  / total  * rect.size.width );
+        }
         
     } else {
         CGRect rect = self.vRatio.frame;
@@ -157,16 +160,18 @@
     if (self.data.isVote == NO) {
         self.data.isVote = YES;
         self.data.numLike++;
-        self.lbSumVote.text = [NSString stringWithFormat:@"%i", self.lbSumVote.text.intValue + 1];
+//        self.lbSumVote.text = [NSString stringWithFormat:@"%i", self.lbSumVote.text.intValue + 1];
         //need recalculate ratio
+        [self setContentWithItem:self.data];
     }
 }
 -(IBAction)btDisLike_Touched:(id)sender {
     if (self.data.isVote == NO) {
         self.data.isVote = YES;
         self.data.numDisLike++;
-        self.lbSumVote.text = [NSString stringWithFormat:@"%i", self.lbSumVote.text.intValue + 1];
-        //need recalculate ratio        
+//        self.lbSumVote.text = [NSString stringWithFormat:@"%i", self.lbSumVote.text.intValue + 1];
+        //need recalculate ratio
+        [self setContentWithItem:self.data];        
     }
 }
 

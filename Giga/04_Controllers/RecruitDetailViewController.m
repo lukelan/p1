@@ -14,6 +14,9 @@
 #import "recruitArticleModel.h"
 #import "ArticleModel.h"
 #import "CommentInputTextCell.h"
+#import "InputCommentView.h"
+#import "RelativeNewsViewController.h"
+
 
 #define CellIdentifierRecruitInfo       @"CellIdentifierRecruitInfo"
 #define CellIdentifierNewsInfo          @"CellIdentifierNewsInfo"
@@ -30,6 +33,7 @@
 
 @implementation UILabel (sizewithtext)
 -(float)newHeightWithContent:(NSString *)text {
+    self.text = text;
     CGSize size = [text sizeWithFont:self.font constrainedToSize:CGSizeMake(self.frame.size.width, 10000)];
     CGRect rect = self.frame;
     rect.size.height = size.height;
@@ -40,6 +44,7 @@
 
 -(float)newHeightWithContent:(NSString *)text andFont:(UIFont *)font {
     self.font = font;
+    self.text = text;    
     CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(self.frame.size.width, 10000)];
     CGRect rect = self.frame;
     rect.size.height = size.height;
@@ -87,60 +92,77 @@
     self.lbEmployeeType.layer.masksToBounds = YES;
     self.lbEmployeeType.layer.cornerRadius = 3;
     
+    self.btBookmark.layer.cornerRadius = 8;
+    self.btBookmarkShort.layer.cornerRadius = 8;
+    
     self.lbJobContentTitle.text = localizedString(@"Job Content");
     self.lbRecruitTargetTitle.text = localizedString(@"Recruit Target");
     self.lbLocationTitle.text = localizedString(@"Location");
     self.lbSalaryTitle.text = localizedString(@"Salary");
     
-    return;
-    
     /// update layout of detail view up to data
+     NSRange range;
+    NSString *source = @"j Careerは、留学先として日本を選択した外国籍留学生、日本での安住を目指す外国人への感謝の心、深い敬愛の念を起業の動機とし、外国籍留学生や在留外国人の皆さんが日本において幸せをつかむための様々なサポートを通し、日本社会のみならず、国際社会への貢献の一助となることを目指しています。近年、グローバル化に対応し社内公用語を英語にする日本企業が増えていますが、就職活動においては依然として日本独特の慣習が根強く残り、外国籍留学生や在留外国人にとって日本企業への就職はとても難しい状況といえます。 j Career はこのような状況を打破するべく、愛と感謝と情熱を持って全力で外国籍の皆さんをサポートし、日本において幸福な生涯を送れるようバックアップしていきたいと考えております。";
+    
+
     if ([_recruitItem isMemberOfClass:[RecruitArticleModel class]]) {
     
         // job content
-        NSString *s = @"dfdf";
+        range.location = rand() % (source.length / 2);
+        range.length = rand() % (source.length - range.location);
+        NSString *s = [source substringWithRange:range];
         float oldHeight = self.lbJobContentDetail.frame.size.height;
         float newHeight = [self.lbJobContentDetail newHeightWithContent:s];
         float delta = newHeight - oldHeight;
         for (UIView *v in self.vContentDetail.subviews) {
             if (v.frame.origin.y > self.lbJobContentDetail.frame.origin.y) {
-                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+                v.frame = RECT_ADD_Y(v.frame, delta);
             }
         }
+        
         // recruit target
-        s = @"dfdf";
+        range.location = rand() % (source.length / 2);
+        range.length = rand() % (source.length - range.location);
+        s = [source substringWithRange:range];
         oldHeight = self.lbRecruitTargetDetail.frame.size.height;
         newHeight = [self.lbRecruitTargetDetail newHeightWithContent:s];
         delta = newHeight - oldHeight;
         for (UIView *v in self.vContentDetail.subviews) {
             if (v.frame.origin.y > self.lbRecruitTargetDetail.frame.origin.y) {
-                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+                v.frame = RECT_ADD_Y(v.frame, delta);
             }
         }
         
         // location
-        s = @"dfdf";
+        range.location = rand() % (source.length / 2);
+        range.length = rand() % (source.length - range.location);
+        s = [source substringWithRange:range];
         oldHeight = self.lbLocationDetail.frame.size.height;
         newHeight = [self.lbLocationDetail newHeightWithContent:s];
         delta = newHeight - oldHeight;
         for (UIView *v in self.vContentDetail.subviews) {
             if (v.frame.origin.y > self.lbLocationDetail.frame.origin.y) {
-                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+                v.frame = RECT_ADD_Y(v.frame, delta);
             }
         }
         
         self.vContentDetail.frame = RECT_WITH_HEIGHT(self.vContentDetail.frame, self.lbCommentSection.frame.origin.y + self.lbCommentSection.frame.size.height);
     }
     
+    
+    
     if ([_recruitItem isMemberOfClass:[ArticleModel class]]) {
         // news content
-        NSString *s = @"dfdf";
+        range.location = rand() % (source.length / 2);
+        range.length = rand() % (source.length - range.location);
+        NSString *s = [source substringWithRange:range];
+
         float oldHeight = self.lbNewContent.frame.size.height;
         float newHeight = [self.lbNewContent newHeightWithContent:s];
         float delta = newHeight - oldHeight;
         for (UIView *v in self.vNewsDetail.subviews) {
             if (v.frame.origin.y > self.lbNewContent.frame.origin.y) {
-                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+                v.frame = RECT_ADD_Y(v.frame, delta);
             }
         }
         
@@ -192,6 +214,7 @@
     }
 }
 
+#pragma mark - IBActions
 
 - (IBAction)btOpenWebDetail_Touched:(id)sender {
     WebDetailViewController *vc = [WebDetailViewController new];
@@ -199,6 +222,9 @@
 }
 
 - (IBAction)btBookmark_Touched:(id)sender {
+    ((UIButton *)sender).backgroundColor = (isBookmark == YES)? [UIColor whiteColor] : RGB(0, 179, 255);
+    [((UIButton *)sender) setTitleColor: (isBookmark == NO)? [UIColor whiteColor] : RGB(0, 179, 255) forState:UIControlStateNormal];
+
     NSString *message = isBookmark == YES? @"Unbookmark successfully" : @"Bookmark successfully";
     isBookmark = !isBookmark;
     
@@ -207,20 +233,35 @@
 }
 
 - (IBAction)btRelativeInfo_Touched:(id)sender {
-    
+    RelativeNewsViewController *vc = [RelativeNewsViewController new];
+    [self.navigationController pushViewController:vc animated: YES];
 }
 
 - (IBAction)btShare_Touched:(id)sender {
     [[ShareSocial share] showShareSelectionInView:self.view];
 }
+
+- (IBAction)btPostComment_Touched:(id)sender {
+    InputCommentView *v = [[InputCommentView alloc] initWithFrame:self.view.frame andCompleteBlock:^(NSString *text, BOOL isTwitterEnable, BOOL isFacebookEnable) {
+        CommentModel *newComment = [CommentModel new];
+        newComment.commentText = text;
+        newComment.numLike = 0;
+        newComment.numDisLike = 0;
+        newComment.arReply = [NSMutableArray new];
+        NSDateFormatter *dateFormat = [NSDateFormatter new];
+        dateFormat.dateFormat = [NSString stringWithFormat:@"yyyy%@MM%@dd%@ hh:mm", localizedString(@"年"), localizedString(@"月"), localizedString(@"日")];
+        newComment.postDate = [dateFormat stringFromDate:[NSDate date]];
+
+        [_arComment insertObject:newComment atIndex:0];
+        [self.tbv reloadData];
+        [self.tbv scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }];
+    [self.view addSubview:v];
+}
+
 -(IBAction)btBack_Touched:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-- (void)loadComment {
-    
-}
-
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 
@@ -233,8 +274,8 @@
         return 1;
     }
     
-    if ([arExpandingSection indexOfObject:@(section)] != NSNotFound) {
-         CommentModel *comment = _arComment[section - 1];
+    CommentModel *comment = _arComment[section - 1];
+    if ([arExpandingSection indexOfObject: comment] != NSNotFound) {
         return comment.arReply.count + 2; // first cell is comment, last cell is input text for new reply
     } else {
         return 1;
@@ -302,7 +343,8 @@
         }
         cell.indexPath = indexPath;
         [cell setContentWithItem:cellData];
-        if ([arExpandingSection indexOfObject: @(indexPath.section)] == NSNotFound) {
+        
+        if ([arExpandingSection indexOfObject: cellData] == NSNotFound) {
             cell.btExpandColapse.selected = NO;
         } else {
             cell.btExpandColapse.selected = YES;
@@ -315,7 +357,29 @@
             CommentInputTextCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierInputReply];
             if (cell == nil) {
                 cell = [CommentInputTextCell new];
+                [cell setOnTouchedAddReplyBlock:^(NSIndexPath *index) {
+                    InputCommentView *v = [[InputCommentView alloc] initWithFrame:self.view.frame andCompleteBlock:^(NSString *text, BOOL isTwitterEnable, BOOL isFacebookEnable) {
+                        CommentModel *newReply = [CommentModel new];
+                        newReply.isReply = YES;
+                        newReply.commentText = text;
+                        newReply.numLike = 0;
+                        newReply.numDisLike = 0;
+                        NSDateFormatter *dateFormat = [NSDateFormatter new];
+                        dateFormat.dateFormat = [NSString stringWithFormat:@"yyyy%@MM%@dd%@ hh:mm", localizedString(@"年"), localizedString(@"月"), localizedString(@"日")];
+                        newReply.postDate = [dateFormat stringFromDate:[NSDate date]];
+
+                        CommentModel *comment =_arComment[indexPath.section - 1];
+                        [comment.arReply insertObject: newReply atIndex:0];
+                        
+                        [self.tbv beginUpdates];
+                        [self.tbv reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:100];
+                        [self.tbv endUpdates];
+                        [self.tbv scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index.section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                    }];
+                    [self.view addSubview:v];
+                }];
             }
+            cell.indexPath = indexPath;
             return cell;
         } else {
             cellData = item.arReply[indexPath.row - 1];
@@ -336,16 +400,16 @@
 #pragma mark - CommentCellDelegate
 - (void)didTouchedExpandColapseForCell:(CommentCell *)cell {
     NSIndexPath *indexPath = cell.indexPath;
-    if([arExpandingSection indexOfObject:@(indexPath.section)] != NSNotFound) {
+    if([arExpandingSection indexOfObject:cell.data] != NSNotFound) {
         // collapse
-        [arExpandingSection removeObject:@(indexPath.section)];
+        [arExpandingSection removeObject:cell.data];
         [self.tbv beginUpdates];
         [self.tbv reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:100];
         [self.tbv endUpdates];
 
     } else {
         //expand
-        [arExpandingSection addObject:@(indexPath.section)];
+        [arExpandingSection addObject:cell.data];
         [self.tbv beginUpdates];
         [self.tbv reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:100];
         [self.tbv endUpdates];

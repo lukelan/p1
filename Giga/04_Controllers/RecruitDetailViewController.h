@@ -30,9 +30,10 @@
 @property(weak, nonatomic) IBOutlet UILabel                 *lbCompanyIntro;
 @property(weak, nonatomic) IBOutlet UIButton                *btOpenWebDetail;
 @property(weak, nonatomic) IBOutlet UIButton                *btBookmark;
+@property(weak, nonatomic) IBOutlet UIButton                *btBookmarkShort;
 @property(weak, nonatomic) IBOutlet UIButton                *btRelativeInfo;
 @property(weak, nonatomic) IBOutlet UILabel                 *lbCommentSection;
-
+@property(weak, nonatomic) IBOutlet UILabel                 *lbBtPostCommentTitle;
 /// View Recruit detail
 @property(strong, nonatomic) IBOutlet UIView                *vNewsDetail; // view contain news info
 @property(weak, nonatomic) IBOutlet UILabel                 *lbNewsTitle;
@@ -47,5 +48,6 @@
 - (IBAction)btBookmark_Touched:(id)sender;
 - (IBAction)btRelativeInfo_Touched:(id)sender;
 - (IBAction)btShare_Touched:(id)sender;
+- (IBAction)btPostComment_Touched:(id)sender;
 - (IBAction)btBack_Touched:(id)sender;
 @end

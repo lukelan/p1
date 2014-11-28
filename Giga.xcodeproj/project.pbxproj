@@ -130,6 +130,14 @@
 		DB4D86341A263A27008E8429 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D862B1A263A27008E8429 /* UIScrollView+SVInfiniteScrolling.m */; };
 		DB4D86351A263A27008E8429 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D862D1A263A27008E8429 /* UIScrollView+SVPullToRefresh.m */; };
 		DB4D86391A264DF1008E8429 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4D86381A264DF1008E8429 /* CommentModel.m */; };
+		DB4E6AB51A28CB9E00C70ED2 /* bt_bookmark_short.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4E6AB41A28CB9E00C70ED2 /* bt_bookmark_short.png */; };
+		DB4E6AB71A28CBAD00C70ED2 /* bt_view_more.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4E6AB61A28CBAD00C70ED2 /* bt_view_more.png */; };
+		DB4E6ABC1A28D2C900C70ED2 /* bt_facebook_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4E6AB81A28D2C900C70ED2 /* bt_facebook_off.png */; };
+		DB4E6ABD1A28D2C900C70ED2 /* bt_facebook_on.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4E6AB91A28D2C900C70ED2 /* bt_facebook_on.png */; };
+		DB4E6ABE1A28D2C900C70ED2 /* bt_twitter_off.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4E6ABA1A28D2C900C70ED2 /* bt_twitter_off.png */; };
+		DB4E6ABF1A28D2C900C70ED2 /* bt_twitter_on.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4E6ABB1A28D2C900C70ED2 /* bt_twitter_on.png */; };
+		DB4E6AC31A28FB8B00C70ED2 /* RelativeNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4E6AC11A28FB8B00C70ED2 /* RelativeNewsViewController.m */; };
+		DB4E6AC41A28FB8B00C70ED2 /* RelativeNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB4E6AC21A28FB8B00C70ED2 /* RelativeNewsViewController.xib */; };
 		DB8709D11A1CDB4D0009E6F0 /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8709D01A1CDB4D0009E6F0 /* SettingsView.m */; };
 		DB8709D31A1CDB750009E6F0 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8709D21A1CDB750009E6F0 /* SettingsView.xib */; };
 		DB8709D71A1CE5640009E6F0 /* DemoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8709D51A1CE5640009E6F0 /* DemoDetailViewController.m */; };
@@ -317,6 +325,15 @@
 		DB4D862D1A263A27008E8429 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		DB4D86371A264DF1008E8429 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		DB4D86381A264DF1008E8429 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		DB4E6AB41A28CB9E00C70ED2 /* bt_bookmark_short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_bookmark_short.png; sourceTree = "<group>"; };
+		DB4E6AB61A28CBAD00C70ED2 /* bt_view_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_view_more.png; sourceTree = "<group>"; };
+		DB4E6AB81A28D2C900C70ED2 /* bt_facebook_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_facebook_off.png; sourceTree = "<group>"; };
+		DB4E6AB91A28D2C900C70ED2 /* bt_facebook_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_facebook_on.png; sourceTree = "<group>"; };
+		DB4E6ABA1A28D2C900C70ED2 /* bt_twitter_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_twitter_off.png; sourceTree = "<group>"; };
+		DB4E6ABB1A28D2C900C70ED2 /* bt_twitter_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_twitter_on.png; sourceTree = "<group>"; };
+		DB4E6AC01A28FB8B00C70ED2 /* RelativeNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelativeNewsViewController.h; sourceTree = "<group>"; };
+		DB4E6AC11A28FB8B00C70ED2 /* RelativeNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelativeNewsViewController.m; sourceTree = "<group>"; };
+		DB4E6AC21A28FB8B00C70ED2 /* RelativeNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelativeNewsViewController.xib; sourceTree = "<group>"; };
 		DB8709CF1A1CDB4D0009E6F0 /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
 		DB8709D01A1CDB4D0009E6F0 /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
 		DB8709D21A1CDB750009E6F0 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
@@ -506,6 +523,12 @@
 		65D587E41A24231E006B7106 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DB4E6AB81A28D2C900C70ED2 /* bt_facebook_off.png */,
+				DB4E6AB91A28D2C900C70ED2 /* bt_facebook_on.png */,
+				DB4E6ABA1A28D2C900C70ED2 /* bt_twitter_off.png */,
+				DB4E6ABB1A28D2C900C70ED2 /* bt_twitter_on.png */,
+				DB4E6AB61A28CBAD00C70ED2 /* bt_view_more.png */,
+				DB4E6AB41A28CB9E00C70ED2 /* bt_bookmark_short.png */,
 				65F1CEC91A26E0F900250E29 /* search.png */,
 				65F1CE901A26B96D00250E29 /* img6.png */,
 				65F1CE911A26B96D00250E29 /* next.png */,
@@ -582,6 +605,9 @@
 				653C61161A26F47800AA223D /* RecruitArticleViewController.h */,
 				653C61171A26F47800AA223D /* RecruitArticleViewController.m */,
 				653C61181A26F47800AA223D /* RecruitArticleViewController.xib */,
+				DB4E6AC01A28FB8B00C70ED2 /* RelativeNewsViewController.h */,
+				DB4E6AC11A28FB8B00C70ED2 /* RelativeNewsViewController.m */,
+				DB4E6AC21A28FB8B00C70ED2 /* RelativeNewsViewController.xib */,
 			);
 			path = 04_Controllers;
 			sourceTree = "<group>";
@@ -782,6 +808,7 @@
 				DB4D860F1A262673008E8429 /* WebDetailViewController.xib in Resources */,
 				DB4D862F1A263A27008E8429 /* blueArrow@2x.png in Resources */,
 				65F1CEBF1A26B99E00250E29 /* ListCompanyInfoViewController.xib in Resources */,
+				DB4E6ABC1A28D2C900C70ED2 /* bt_facebook_off.png in Resources */,
 				65D5880B1A24231E006B7106 /* ic_count_cmt.png in Resources */,
 				65D588141A24231E006B7106 /* img3.png in Resources */,
 				65D588131A24231E006B7106 /* img2.png in Resources */,
@@ -796,15 +823,18 @@
 				651D3D231A249175008F4C4F /* nobookmark.png in Resources */,
 				DB105BDE1A2504E6007669D5 /* bt_like_bkg.png in Resources */,
 				65D588071A24231E006B7106 /* bt_title_new.png in Resources */,
+				DB4E6ABF1A28D2C900C70ED2 /* bt_twitter_on.png in Resources */,
 				DB105BCB1A24FC0A007669D5 /* temp2.png in Resources */,
 				DB105BC31A24E9F1007669D5 /* company_logo.png in Resources */,
 				65F1CEC11A26B99E00250E29 /* ListCompanyViewController.xib in Resources */,
 				65D588101A24231E006B7106 /* image-bg-blue.png in Resources */,
 				65F1CEC31A26BCD400250E29 /* language.json in Resources */,
 				653C611A1A26F47800AA223D /* RecruitArticleViewController.xib in Resources */,
+				DB4E6AC41A28FB8B00C70ED2 /* RelativeNewsViewController.xib in Resources */,
 				DB8CAF2C1A279413002E2A2A /* CommentInputTextCell.xib in Resources */,
 				DB105BDC1A2504E6007669D5 /* bt_dislike_bkg.png in Resources */,
 				65D588081A24231E006B7106 /* comment.png in Resources */,
+				DB4E6ABE1A28D2C900C70ED2 /* bt_twitter_off.png in Resources */,
 				DB8709D81A1CE5640009E6F0 /* DemoDetailViewController.xib in Resources */,
 				650F65481A1AEBA00086A68F /* MainViewController.xib in Resources */,
 				DB4D862E1A263A27008E8429 /* blueArrow.png in Resources */,
@@ -847,9 +877,12 @@
 				65D588181A24231E006B7106 /* img8.png in Resources */,
 				65B69D2D1A24725D00943A3A /* line-space.png in Resources */,
 				65D5880A1A24231E006B7106 /* ic_arrow.png in Resources */,
+				DB4E6AB51A28CB9E00C70ED2 /* bt_bookmark_short.png in Resources */,
+				DB4E6AB71A28CBAD00C70ED2 /* bt_view_more.png in Resources */,
 				DB105BC11A24E770007669D5 /* RecruitDetailViewController.xib in Resources */,
 				DB4D86301A263A27008E8429 /* blueArrow_flip.png in Resources */,
 				65D588091A24231E006B7106 /* facebook_off.png in Resources */,
+				DB4E6ABD1A28D2C900C70ED2 /* bt_facebook_on.png in Resources */,
 				65F1CE9E1A26B97A00250E29 /* CompanyCategoryCell.xib in Resources */,
 				DB4D86131A262FF9008E8429 /* temp3.png in Resources */,
 				65D5880F1A24231E006B7106 /* ico_pr@3x.png in Resources */,
@@ -903,6 +936,7 @@
 				650F654F1A1AEBA90086A68F /* DemoView.m in Sources */,
 				6516EF541A241AED001747D4 /* BaseModel.m in Sources */,
 				F6E515591A288845003B6205 /* InputCommentView.m in Sources */,
+				DB4E6AC31A28FB8B00C70ED2 /* RelativeNewsViewController.m in Sources */,
 				65F1CEB11A26B99400250E29 /* CompanyModel.m in Sources */,
 				DB8CAF251A275C97002E2A2A /* ShareSocial.m in Sources */,
 				65F1CEBC1A26B99E00250E29 /* ListCompanyCategoryViewController.m in Sources */,

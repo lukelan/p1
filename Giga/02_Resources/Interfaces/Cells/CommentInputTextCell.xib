@@ -25,12 +25,22 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_reply.png" translatesAutoresizingMaskIntoConstraints="NO" id="iJQ-59-tYd">
                         <rect key="frame" x="8" y="19" width="13" height="13"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyJ-gP-Ibg">
+                        <rect key="frame" x="29" y="0.0" width="283" height="54"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="btAddReply_Touched:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lBR-0J-f9l"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="tfInputReply" destination="Amj-IB-V5W" id="fBa-B9-Euh"/>
             </connections>
+            <point key="canvasLocation" x="140" y="150.5"/>
         </tableViewCell>
     </objects>
     <resources>

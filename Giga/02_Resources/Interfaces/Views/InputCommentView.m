@@ -12,8 +12,18 @@
 @synthesize containerView;
 @synthesize textView;
 
+- (instancetype)initWithFrame:(CGRect)frame andCompleteBlock:(void (^)(NSString *text, BOOL isTwitterEnable, BOOL isFacebookEnable))block {
+    self = [self initWithFrame:frame];
+    completeBlock = block;
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [[[NSBundle mainBundle] loadNibNamed:[[self class] description] owner:self options:nil] firstObject];
+    self.frame = frame;
+    
+    self.btSend.layer.cornerRadius = 5;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -29,21 +39,26 @@
     textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
     
     textView.minNumberOfLines = 1;
-    textView.maxNumberOfLines = 6;
+    textView.maxNumberOfLines = 4;
     // you can also set the maximum height in points with maxHeight
     // textView.maxHeight = 200.0f;
-    textView.returnKeyType = UIReturnKeyGo; //just as an example
+    textView.returnKeyType = UIReturnKeyDefault; //just as an example
     textView.font = [UIFont systemFontOfSize:15.0f];
     textView.delegate = self;
     textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     textView.backgroundColor = [UIColor whiteColor];
-    textView.placeholder = @"Type to see the textView grow!";
+    textView.placeholder = @"コメント入力";
     textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    textView.layer.cornerRadius = 5;
+    textView.layer.borderColor = RGB(102, 102, 102).CGColor;
+    textView.layer.borderWidth = 1;
+    textView.textColor = RGB(141, 141, 141);
 
 
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
     [self addGestureRecognizer:tapGesture];
 
+    [textView becomeFirstResponder];
     return self;
 }
 
@@ -108,15 +123,20 @@
 
 #pragma mark - IBActions
 -(IBAction)btTwitter_Touched:(id)sender {
-    
+    ((UIButton *)sender).selected = !isTwitterEnable;
+    isTwitterEnable = !isTwitterEnable;
 }
 
 -(IBAction)btFacebook_Touched:(id)sender {
-    
+    ((UIButton *)sender).selected = !isFacebookEnable;
+    isFacebookEnable = !isFacebookEnable;
 }
 
 -(IBAction)btSend_Touched:(id)sender {
-    
+    if (completeBlock) {
+        completeBlock(textView.text, isTwitterEnable, isFacebookEnable);
+    }
+    [self removeFromSuperview];
 }
 
 #pragma mark - HPGrowingTextViewDelegate
@@ -124,10 +144,10 @@
 {
     float diff = (growingTextView.frame.size.height - height);
     
-    CGRect r = containerView.frame;
+    CGRect r = textView.frame;
     r.size.height -= diff;
     r.origin.y += diff;
-    containerView.frame = r;
+    textView.frame = r;
 }
 
 

@@ -12,4 +12,9 @@
 @interface CommentInputTextCell : UITableViewCell<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField                *tfInputReply;
+@property (strong, nonatomic) NSIndexPath                       *indexPath;
+
+@property (copy, nonatomic) void (^onTouchedAddReplyBlock)(NSIndexPath *);
+
+- (IBAction)btAddReply_Touched:(id)sender;
 @end

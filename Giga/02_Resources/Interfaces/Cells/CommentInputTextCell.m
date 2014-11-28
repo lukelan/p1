@@ -32,6 +32,12 @@
     return self;
 }
 
+- (IBAction)btAddReply_Touched:(id)sender {
+    if (self.onTouchedAddReplyBlock) {
+        self.onTouchedAddReplyBlock(self.indexPath);
+    }
+}
+
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self endEditing:YES];

@@ -199,9 +199,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id object = tableData[indexPath.row];
-    if ([object isMemberOfClass:[RecruitArticleModel class]]) {
+    if ([object isMemberOfClass:[RecruitArticleModel class]] || [object isMemberOfClass:[ArticleModel class]]) {
         RecruitDetailViewController *vc = [RecruitDetailViewController new];
-        vc.recruitArticleModel = object;
+        vc.recruitItem = object;
         [self.navigationController pushViewController:vc animated: YES];
         
     }
