@@ -282,6 +282,14 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == _arComment.count) {
+        return 42;
+    }
+    return 0;
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if ([_recruitItem isMemberOfClass:[RecruitArticleModel class]]) {
