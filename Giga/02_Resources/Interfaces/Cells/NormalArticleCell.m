@@ -22,10 +22,11 @@
     if (isAppliedStyle) return;
     isAppliedStyle = YES;
     UIFont *lbFont = NORMAL_FONT_WITH_SIZE(12);
-    self.lbComments.font = self.lbNumberComments.font = self.btnCompany.titleLabel.font = lbFont;
+    self.lbNumberComments.font = self.btnCompany.titleLabel.font = lbFont;
     self.lbTitle.font = BOLD_FONT_WITH_SIZE(14);
     
     self.lbComments.text = localizedString(@"Comment");
+    self.lbComments.font = NORMAL_FONT_WITH_SIZE(8);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

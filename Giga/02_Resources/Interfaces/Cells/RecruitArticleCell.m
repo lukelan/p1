@@ -27,6 +27,8 @@
     self.lbCompanyName.font = BOLD_FONT_WITH_SIZE(14);
     self.lbRecruitType.font = NORMAL_FONT_WITH_SIZE(12);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.lbComments.text = localizedString(@"Comment");
+    self.lbComments.font = NORMAL_FONT_WITH_SIZE(8);
 }
 
 - (void)setObject:(id)obj

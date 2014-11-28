@@ -27,7 +27,7 @@
     self.lbAdsSource.font = NORMAL_FONT_WITH_SIZE(12);
     
     self.lbComments.text = localizedString(@"Comment");
-    self.lbComments.font = NORMAL_FONT_WITH_SIZE(12);
+    self.lbComments.font = NORMAL_FONT_WITH_SIZE(8);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
