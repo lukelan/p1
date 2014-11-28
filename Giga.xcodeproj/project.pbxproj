@@ -138,6 +138,10 @@
 		DB8CAF271A276E75002E2A2A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8CAF261A276E75002E2A2A /* Social.framework */; };
 		DB8CAF2B1A279413002E2A2A /* CommentInputTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8CAF291A279413002E2A2A /* CommentInputTextCell.m */; };
 		DB8CAF2C1A279413002E2A2A /* CommentInputTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8CAF2A1A279413002E2A2A /* CommentInputTextCell.xib */; };
+		F6E515551A288714003B6205 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E515521A288714003B6205 /* HPGrowingTextView.m */; };
+		F6E515561A288714003B6205 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E515541A288714003B6205 /* HPTextViewInternal.m */; };
+		F6E515591A288845003B6205 /* InputCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E515581A288845003B6205 /* InputCommentView.m */; };
+		F6E5155B1A28885A003B6205 /* InputCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6E5155A1A28885A003B6205 /* InputCommentView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -325,6 +329,13 @@
 		DB8CAF281A279413002E2A2A /* CommentInputTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInputTextCell.h; sourceTree = "<group>"; };
 		DB8CAF291A279413002E2A2A /* CommentInputTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInputTextCell.m; sourceTree = "<group>"; };
 		DB8CAF2A1A279413002E2A2A /* CommentInputTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentInputTextCell.xib; sourceTree = "<group>"; };
+		F6E515511A288714003B6205 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		F6E515521A288714003B6205 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		F6E515531A288714003B6205 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		F6E515541A288714003B6205 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		F6E515571A288845003B6205 /* InputCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCommentView.h; sourceTree = "<group>"; };
+		F6E515581A288845003B6205 /* InputCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCommentView.m; sourceTree = "<group>"; };
+		F6E5155A1A28885A003B6205 /* InputCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputCommentView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,6 +456,7 @@
 		6516EF2C1A241A13001747D4 /* 03_Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				F6E515501A288707003B6205 /* HPGrowingTextView */,
 				DB4D861F1A263A27008E8429 /* MNMBottomPullToRefresh */,
 				DB4D86281A263A27008E8429 /* SVPullToRefresh */,
 			);
@@ -613,6 +625,9 @@
 				65F1CEA41A26B98200250E29 /* CustomNavigationView.h */,
 				65F1CEA51A26B98200250E29 /* CustomNavigationView.m */,
 				65F1CEA61A26B98200250E29 /* CustomNavigationView.xib */,
+				F6E515571A288845003B6205 /* InputCommentView.h */,
+				F6E515581A288845003B6205 /* InputCommentView.m */,
+				F6E5155A1A28885A003B6205 /* InputCommentView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -692,6 +707,17 @@
 				DB8CAF241A275C97002E2A2A /* ShareSocial.m */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		F6E515501A288707003B6205 /* HPGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				F6E515511A288714003B6205 /* HPGrowingTextView.h */,
+				F6E515521A288714003B6205 /* HPGrowingTextView.m */,
+				F6E515531A288714003B6205 /* HPTextViewInternal.h */,
+				F6E515541A288714003B6205 /* HPTextViewInternal.m */,
+			);
+			path = HPGrowingTextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -814,6 +840,7 @@
 				65F1CED21A26E22500250E29 /* RecruitArticleCell.xib in Resources */,
 				65D5881A1A24231E006B7106 /* twiter_off.png in Resources */,
 				DB105BE01A2504E6007669D5 /* icon_reply.png in Resources */,
+				F6E5155B1A28885A003B6205 /* InputCommentView.xib in Resources */,
 				65D588151A24231E006B7106 /* img4.png in Resources */,
 				DB105BD01A24FE3C007669D5 /* CommentCell.xib in Resources */,
 				DB4D86311A263A27008E8429 /* blueArrow_flip@2x.png in Resources */,
@@ -875,6 +902,7 @@
 				65F1CEBE1A26B99E00250E29 /* ListCompanyInfoViewController.m in Sources */,
 				650F654F1A1AEBA90086A68F /* DemoView.m in Sources */,
 				6516EF541A241AED001747D4 /* BaseModel.m in Sources */,
+				F6E515591A288845003B6205 /* InputCommentView.m in Sources */,
 				65F1CEB11A26B99400250E29 /* CompanyModel.m in Sources */,
 				DB8CAF251A275C97002E2A2A /* ShareSocial.m in Sources */,
 				65F1CEBC1A26B99E00250E29 /* ListCompanyCategoryViewController.m in Sources */,
@@ -904,6 +932,8 @@
 				DB4D861E1A263974008E8429 /* Utils.m in Sources */,
 				65F1CEA11A26B97A00250E29 /* CompanyCell.m in Sources */,
 				65F1CEA71A26B98200250E29 /* CustomNavigationView.m in Sources */,
+				F6E515551A288714003B6205 /* HPGrowingTextView.m in Sources */,
+				F6E515561A288714003B6205 /* HPTextViewInternal.m in Sources */,
 				DB8709D71A1CE5640009E6F0 /* DemoDetailViewController.m in Sources */,
 				DB4D86391A264DF1008E8429 /* CommentModel.m in Sources */,
 				DB4D86351A263A27008E8429 /* UIScrollView+SVPullToRefresh.m in Sources */,

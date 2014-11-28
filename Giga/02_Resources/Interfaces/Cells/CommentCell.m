@@ -89,10 +89,21 @@
 }
 
 + (UIColor *)colorForTextWithLike:(NSInteger )numLike AndDisLike:(NSInteger )numDislike {
+    NSInteger total = numLike + numDislike;
+    if (total <= 10) {
+        
+    }
+    //  < 10
+    
+    
+    // total > 10  && < 200
     if (numLike > numDislike) {
         return ((numLike - numDislike) >= 100)? RGB(72, 175, 239) : RGB(102, 102, 102);
     }
     return RGB(149, 149, 149);
+    
+    // > 200
+    
 }
 
 

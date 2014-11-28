@@ -10,8 +10,8 @@
 @class RecruitArticleModel;
 
 @interface RecruitDetailViewController : BaseViewController
-/// View Content
-@property(strong, nonatomic) IBOutlet UIView                *vContentDetail;
+/// View Recruit detail
+@property(strong, nonatomic) IBOutlet UIView                *vContentDetail; // view contain Recruit info
 @property(weak, nonatomic) IBOutlet UILabel                 *lbEmployeeType;
 @property(weak, nonatomic) IBOutlet UILabel                 *lbFeature;
 @property(weak, nonatomic) IBOutlet UILabel                 *lbNew;
@@ -33,8 +33,13 @@
 @property(weak, nonatomic) IBOutlet UIButton                *btRelativeInfo;
 @property(weak, nonatomic) IBOutlet UILabel                 *lbCommentSection;
 
+/// View Recruit detail
+@property(strong, nonatomic) IBOutlet UIView                *vNewsDetail; // view contain news info
+@property(weak, nonatomic) IBOutlet UILabel                 *lbNewsTitle;
+@property(weak, nonatomic) IBOutlet UILabel                 *lbNewsCategory;
+@property(weak, nonatomic) IBOutlet UILabel                 *lbNewContent;
 ////
-@property(strong,nonatomic) RecruitArticleModel             *recruitArticleModel;
+@property(strong,nonatomic) NSObject                        *recruitItem;
 @property(weak, nonatomic) IBOutlet UITableView             *tbv;
 @property(strong, nonatomic) NSMutableArray                 *arComment;
 

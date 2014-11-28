@@ -12,16 +12,49 @@
 #import "CommentCell.h"
 #import "ShareSocial.h"
 #import "recruitArticleModel.h"
+#import "ArticleModel.h"
 #import "CommentInputTextCell.h"
+
+#define CellIdentifierRecruitInfo       @"CellIdentifierRecruitInfo"
+#define CellIdentifierNewsInfo          @"CellIdentifierNewsInfo"
 
 #define CellIdentifierComment           @"CellIdentifierComment"
 #define CellIdentifierReply             @"CellIdentifierReply"
 #define CellIdentifierInputReply        @"CellIdentifierInputReply"
 
+
+@interface UILabel (sizewithtext)
+-(float)newHeightWithContent:(NSString *)text;
+-(float)newHeightWithContent:(NSString *)text andFont:(UIFont *)font;
+@end
+
+@implementation UILabel (sizewithtext)
+-(float)newHeightWithContent:(NSString *)text {
+    CGSize size = [text sizeWithFont:self.font constrainedToSize:CGSizeMake(self.frame.size.width, 10000)];
+    CGRect rect = self.frame;
+    rect.size.height = size.height;
+    self.frame = rect;
+    
+    return size.height;
+}
+
+-(float)newHeightWithContent:(NSString *)text andFont:(UIFont *)font {
+    self.font = font;
+    CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(self.frame.size.width, 10000)];
+    CGRect rect = self.frame;
+    rect.size.height = size.height;
+    self.frame = rect;
+    
+    return size.height;
+}
+
+@end
+
+
 @interface RecruitDetailViewController ()<UITableViewDataSource, UITableViewDelegate, CommentCellDelegate>
 {
     NSMutableArray      *arExpandingSection;
-//    NSMutableArray      *ar;
+    BOOL                isBookmark;
 }
 @end
 
@@ -58,7 +91,64 @@
     self.lbRecruitTargetTitle.text = localizedString(@"Recruit Target");
     self.lbLocationTitle.text = localizedString(@"Location");
     self.lbSalaryTitle.text = localizedString(@"Salary");
+    
+    return;
+    
+    /// update layout of detail view up to data
+    if ([_recruitItem isMemberOfClass:[RecruitArticleModel class]]) {
+    
+        // job content
+        NSString *s = @"dfdf";
+        float oldHeight = self.lbJobContentDetail.frame.size.height;
+        float newHeight = [self.lbJobContentDetail newHeightWithContent:s];
+        float delta = newHeight - oldHeight;
+        for (UIView *v in self.vContentDetail.subviews) {
+            if (v.frame.origin.y > self.lbJobContentDetail.frame.origin.y) {
+                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+            }
+        }
+        // recruit target
+        s = @"dfdf";
+        oldHeight = self.lbRecruitTargetDetail.frame.size.height;
+        newHeight = [self.lbRecruitTargetDetail newHeightWithContent:s];
+        delta = newHeight - oldHeight;
+        for (UIView *v in self.vContentDetail.subviews) {
+            if (v.frame.origin.y > self.lbRecruitTargetDetail.frame.origin.y) {
+                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+            }
+        }
+        
+        // location
+        s = @"dfdf";
+        oldHeight = self.lbLocationDetail.frame.size.height;
+        newHeight = [self.lbLocationDetail newHeightWithContent:s];
+        delta = newHeight - oldHeight;
+        for (UIView *v in self.vContentDetail.subviews) {
+            if (v.frame.origin.y > self.lbLocationDetail.frame.origin.y) {
+                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+            }
+        }
+        
+        self.vContentDetail.frame = RECT_WITH_HEIGHT(self.vContentDetail.frame, self.lbCommentSection.frame.origin.y + self.lbCommentSection.frame.size.height);
+    }
+    
+    if ([_recruitItem isMemberOfClass:[ArticleModel class]]) {
+        // news content
+        NSString *s = @"dfdf";
+        float oldHeight = self.lbNewContent.frame.size.height;
+        float newHeight = [self.lbNewContent newHeightWithContent:s];
+        float delta = newHeight - oldHeight;
+        for (UIView *v in self.vNewsDetail.subviews) {
+            if (v.frame.origin.y > self.lbNewContent.frame.origin.y) {
+                v.frame = RECT_ADD_HEIGHT(v.frame, delta);
+            }
+        }
+        
+        self.vNewsDetail.frame = RECT_ADD_HEIGHT(self.vNewsDetail.frame, delta + 5);
 
+    }
+    
+    
 }
 
 - (void)createTestData {
@@ -70,7 +160,15 @@
     NSDateFormatter *dateFormat = [NSDateFormatter new];
     dateFormat.dateFormat = [NSString stringWithFormat:@"yyyy%@MM%@dd%@ hh:mm", localizedString(@"年"), localizedString(@"月"), localizedString(@"日")];
 
-    for (int i = 0; i < _recruitArticleModel.numberComment; i++) {
+    NSInteger numerComment = 0;
+    if ([_recruitItem isMemberOfClass:[RecruitArticleModel class]]) {
+        numerComment = ((RecruitArticleModel*)_recruitItem).numberComment;
+    }
+    if ([_recruitItem isMemberOfClass:[ArticleModel class]]) {
+        numerComment = ((ArticleModel*)_recruitItem).numberComment.integerValue;
+    }
+
+    for (int i = 0; i < numerComment; i++) {
         CommentModel *comment = [CommentModel new];
         comment.isReply = NO;
         comment.commentText = [sComment substringFromIndex:rand()% sComment.length];
@@ -101,7 +199,11 @@
 }
 
 - (IBAction)btBookmark_Touched:(id)sender {
+    NSString *message = isBookmark == YES? @"Unbookmark successfully" : @"Bookmark successfully";
+    isBookmark = !isBookmark;
     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message: message delegate:nil cancelButtonTitle: @"OK" otherButtonTitles: nil];
+    [alert show];
 }
 
 - (IBAction)btRelativeInfo_Touched:(id)sender {
@@ -141,8 +243,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        // detail info view
-        return self.vContentDetail.bounds.size.height;
+        if ([_recruitItem isMemberOfClass:[RecruitArticleModel class]]) {
+            // Recruit detail info view
+            return self.vContentDetail.bounds.size.height;
+        }
+        if ([_recruitItem isMemberOfClass:[ArticleModel class]]) {
+            // Recruit detail info view
+            return self.vNewsDetail.bounds.size.height;
+        }
+        return 0;
     }
     
      if (indexPath.row == 0) {
@@ -162,13 +271,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentTableHeaderCell"];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentTableHeaderCell"];
-            [cell addSubview: self.vContentDetail];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if ([_recruitItem isMemberOfClass:[RecruitArticleModel class]]) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifierRecruitInfo];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierRecruitInfo];
+                [cell addSubview: self.vContentDetail];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            return cell;
         }
-        return cell;
+        if ([_recruitItem isMemberOfClass:[ArticleModel class]]) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifierNewsInfo];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierNewsInfo];
+                [cell addSubview: self.vNewsDetail];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            return cell;
+
+        }
     }
     
     CommentModel  *cellData;

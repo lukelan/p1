@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecruitDetailViewController">
@@ -23,12 +22,16 @@
                 <outlet property="lbLocationDetail" destination="I7O-LQ-JEx" id="6O2-8E-Gfw"/>
                 <outlet property="lbLocationTitle" destination="je0-Bn-NUM" id="jp7-sG-K23"/>
                 <outlet property="lbNew" destination="TjF-XT-VC3" id="ja0-iP-yWh"/>
+                <outlet property="lbNewContent" destination="rKi-l4-Auv" id="7ni-qK-bsz"/>
+                <outlet property="lbNewsCategory" destination="WaS-K4-hKg" id="7gB-d8-HxH"/>
+                <outlet property="lbNewsTitle" destination="gkW-gg-4P0" id="ZYf-Wj-2Dn"/>
                 <outlet property="lbRecruitTargetDetail" destination="1GU-r1-Cty" id="qMH-mR-bZc"/>
                 <outlet property="lbRecruitTargetTitle" destination="PsM-m5-Ro8" id="2Vk-9G-Gd7"/>
                 <outlet property="lbSalaryDetail" destination="OZz-YZ-CRP" id="xKU-7X-PhT"/>
                 <outlet property="lbSalaryTitle" destination="TD0-aA-alm" id="E74-M5-M2i"/>
                 <outlet property="tbv" destination="tm7-iS-WQa" id="LJ6-tV-ixJ"/>
                 <outlet property="vContentDetail" destination="dwU-Qg-qFi" id="j4w-tb-qde"/>
+                <outlet property="vNewsDetail" destination="agy-7a-Mbx" id="BDE-W7-7Kr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -109,7 +112,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="140" y="155"/>
+            <point key="canvasLocation" x="45" y="27"/>
         </view>
         <view contentMode="scaleToFill" id="dwU-Qg-qFi">
             <rect key="frame" x="0.0" y="0.0" width="320" height="694"/>
@@ -325,6 +328,51 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="575" y="307"/>
+        </view>
+        <view contentMode="scaleToFill" id="agy-7a-Mbx">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="203"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gkW-gg-4P0">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rKi-l4-Auv">
+                    <rect key="frame" x="0.0" y="78" width="320" height="81"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ibF-9l-8c3">
+                    <rect key="frame" x="0.0" y="154" width="148" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" backgroundImage="bt_link_page_bgk.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6cL-r3-RdU">
+                    <rect key="frame" x="167" y="152" width="145" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" backgroundImage="bt_bookmark_bkg.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WaS-K4-hKg">
+                    <rect key="frame" x="0.0" y="48" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="93" y="-334.5"/>
         </view>
     </objects>
     <resources>
