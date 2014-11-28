@@ -21,3 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbNumberComments;
 
 @end
+
+
+@interface NSMutableAttributedString (Extension)
+- (void)setFont:(UIFont*)font
+          color:(UIColor*)color
+        atRange:(NSRange)range
+         string:(NSString*)msg;
+@end

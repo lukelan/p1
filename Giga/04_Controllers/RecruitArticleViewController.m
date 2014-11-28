@@ -61,6 +61,7 @@
     [self.tbArticles registerNib:[UINib nibWithNibName:NormalArticleCellID bundle:nil] forCellReuseIdentifier:NormalArticleCellID];
     [self.tbArticles registerNib:[UINib nibWithNibName:AdvertiseArticleCellID bundle:nil] forCellReuseIdentifier:AdvertiseArticleCellID];
     [self.tbArticles registerNib:[UINib nibWithNibName:RecruitArticleCellID bundle:nil] forCellReuseIdentifier:RecruitArticleCellID];
+    self.tbArticles.backgroundColor = RGB(226, 231, 237);
 }
 
 - (void)loadData
@@ -89,7 +90,7 @@
         recruit.companyDes = RANDOM_STRING(20);
         recruit.recruitType = [NSString stringWithFormat:@"%@・%@\n%@",RANDOM_STRING(3),RANDOM_STRING(4),RANDOM_STRING(8)];
         recruit.recruitFromValue = (rand() % 10) + 10;
-        recruit.recruitToValue = recruit.recruitFromValue + (rand() % 10);
+        recruit.recruitToValue = recruit.recruitFromValue + (rand() % 10) + 5;
         recruit.isNew = YES;
         recruit.numberComment = rand() % 100;
         
@@ -197,7 +198,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     id object = tableData[indexPath.row];
     if ([object isMemberOfClass:[RecruitArticleModel class]]) {
         RecruitDetailViewController *vc = [RecruitDetailViewController new];
@@ -205,7 +205,6 @@
         [self.navigationController pushViewController:vc animated: YES];
         
     }
-    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

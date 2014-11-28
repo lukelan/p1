@@ -59,6 +59,7 @@
             [self performSelector:@selector(doneRefreshData) withObject:nil afterDelay:0.3f];
         }
     }];
+    self.tbArticles.backgroundColor = RGB(226, 231, 237);
 }
 
 - (void)loadData
