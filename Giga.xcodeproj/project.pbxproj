@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18DC8A961A240CF700AD2637 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DC8A951A240CF700AD2637 /* Main.storyboard */; };
+		18E581EB1A29526B00168859 /* PolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E581EA1A29526B00168859 /* PolicyViewController.m */; };
+		18E581EF1A2956B100168859 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E581ED1A2956B100168859 /* SettingViewController.m */; };
+		18E581F01A2956B100168859 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E581EE1A2956B100168859 /* SettingViewController.xib */; };
 		32B4080CDD2C9FCFC5F43C82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 241BCB908804591C1877DAD1 /* libPods.a */; };
 		650F65121A1AEB6E0086A68F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650F65111A1AEB6E0086A68F /* Foundation.framework */; };
 		650F65141A1AEB6E0086A68F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650F65131A1AEB6E0086A68F /* CoreGraphics.framework */; };
@@ -153,7 +156,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18DC8A951A240CF700AD2637 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		18DC8A951A240CF700AD2637 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = 02_Resources/Interfaces/Main.storyboard; sourceTree = "<group>"; };
+		18E581E91A29526B00168859 /* PolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyViewController.h; sourceTree = "<group>"; };
+		18E581EA1A29526B00168859 /* PolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyViewController.m; sourceTree = "<group>"; };
+		18E581EC1A2956B100168859 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		18E581ED1A2956B100168859 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		18E581EE1A2956B100168859 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		241BCB908804591C1877DAD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		650F650E1A1AEB6E0086A68F /* Giga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		650F65111A1AEB6E0086A68F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -387,9 +395,29 @@
 			children = (
 				65F1CEA31A26B98200250E29 /* Views */,
 				65D588321A2435FA006B7106 /* Cells */,
-				18DC8A951A240CF700AD2637 /* Main.storyboard */,
 			);
 			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		18E581E81A29523D00168859 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				18E581E91A29526B00168859 /* PolicyViewController.h */,
+				18E581EA1A29526B00168859 /* PolicyViewController.m */,
+				18E581EC1A2956B100168859 /* SettingViewController.h */,
+				18E581ED1A2956B100168859 /* SettingViewController.m */,
+				18E581EE1A2956B100168859 /* SettingViewController.xib */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		18E581F11A2959DF00168859 /* TabController */ = {
+			isa = PBXGroup;
+			children = (
+				65D5882F1A24278D006B7106 /* TabViewController.h */,
+				65D588301A24278D006B7106 /* TabViewController.m */,
+			);
+			name = TabController;
 			sourceTree = "<group>";
 		};
 		650F65051A1AEB6E0086A68F = {
@@ -427,6 +455,7 @@
 		650F65171A1AEB6E0086A68F /* Giga */ = {
 			isa = PBXGroup;
 			children = (
+				18DC8A951A240CF700AD2637 /* Main.storyboard */,
 				DB4D86141A263974008E8429 /* 05_Utilities */,
 				65D5881B1A242383006B7106 /* 04_Controllers */,
 				6516EF501A241AD0001747D4 /* 01_Classes */,
@@ -586,13 +615,13 @@
 		65D5881B1A242383006B7106 /* 04_Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18E581E81A29523D00168859 /* Setting */,
 				65F1CEB21A26B99E00250E29 /* Company Infor */,
 				65D5881C1A24239B006B7106 /* ArticleViewController.h */,
 				65D5881D1A24239B006B7106 /* ArticleViewController.m */,
 				65D5881F1A2423B1006B7106 /* BaseViewController.h */,
 				65D588201A2423B1006B7106 /* BaseViewController.m */,
-				65D5882F1A24278D006B7106 /* TabViewController.h */,
-				65D588301A24278D006B7106 /* TabViewController.m */,
+				18E581F11A2959DF00168859 /* TabController */,
 				651D3D1D1A248F8E008F4C4F /* BookmarksViewController.h */,
 				651D3D1E1A248F8E008F4C4F /* BookmarksViewController.m */,
 				651D3D1F1A248F8E008F4C4F /* BookmarksViewController.xib */,
@@ -806,6 +835,7 @@
 				65D5880E1A24231E006B7106 /* ico_pr@2x.png in Resources */,
 				650F65501A1AEBA90086A68F /* DemoView.xib in Resources */,
 				DB4D860F1A262673008E8429 /* WebDetailViewController.xib in Resources */,
+				18E581F01A2956B100168859 /* SettingViewController.xib in Resources */,
 				DB4D862F1A263A27008E8429 /* blueArrow@2x.png in Resources */,
 				65F1CEBF1A26B99E00250E29 /* ListCompanyInfoViewController.xib in Resources */,
 				DB4E6ABC1A28D2C900C70ED2 /* bt_facebook_off.png in Resources */,
@@ -944,6 +974,7 @@
 				65D588211A2423B1006B7106 /* BaseViewController.m in Sources */,
 				65D588311A24278D006B7106 /* TabViewController.m in Sources */,
 				65EF61CE1A1C989C00E04A48 /* SampleModel.m in Sources */,
+				18E581EF1A2956B100168859 /* SettingViewController.m in Sources */,
 				65F1CED01A26E21400250E29 /* AdvertiseArticleCell.m in Sources */,
 				65F1CE9F1A26B97A00250E29 /* BaseCell.m in Sources */,
 				653C611D1A26F6D200AA223D /* AdsModel.m in Sources */,
@@ -961,6 +992,7 @@
 				65F1CEB01A26B99400250E29 /* CompanyCategoryModel.m in Sources */,
 				650F654E1A1AEBA90086A68F /* HBTabBar.m in Sources */,
 				6516EF5A1A241C32001747D4 /* BaseManagedObject.m in Sources */,
+				18E581EB1A29526B00168859 /* PolicyViewController.m in Sources */,
 				65F1CECD1A26E1FD00250E29 /* RecruitArticleCell.m in Sources */,
 				65D588381A24367A006B7106 /* NormalArticleCell.m in Sources */,
 				DB4D861E1A263974008E8429 /* Utils.m in Sources */,
@@ -1072,13 +1104,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vu Trong (5WX3ZR98FQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Mans (A32MXTTDW7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Giga/Giga-Prefix.pch";
 				INFOPLIST_FILE = "Giga/Giga-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8b18b09b-1e6a-4e63-a8b5-465a56a157bf";
+				PROVISIONING_PROFILE = "357b9a34-27b3-46b7-bac1-193b498f5e1a";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1095,7 +1127,7 @@
 				INFOPLIST_FILE = "Giga/Giga-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8b18b09b-1e6a-4e63-a8b5-465a56a157bf";
+				PROVISIONING_PROFILE = "357b9a34-27b3-46b7-bac1-193b498f5e1a";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

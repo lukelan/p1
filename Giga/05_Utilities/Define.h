@@ -52,3 +52,8 @@ typedef enum
 
 #define FONT_BOLD                   @"HelveticaNeue-Bold"
 #define FONT_NORMAL                 @"HelveticaNeue"
+
+
+// segue
+#define SEGUE_TAB_TO_POLICY_CONTROLLER @"segueTabToPolicyController"
+

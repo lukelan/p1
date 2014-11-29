@@ -44,5 +44,7 @@
     "NO"                                : "いいえ",
     "OK"                                : "はい",
     "Share"                             : "シェアする",
-    "Post Comment"                      : "コメントする"
+    "Post Comment"                      : "コメントする",
+    "Policy"                            : "プライバシーポリシー",
+    "Term Of Use"                       : "利用規約"
 }

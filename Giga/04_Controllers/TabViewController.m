@@ -15,6 +15,7 @@
 
 #import "ArticleCategoryModel.h"
 #import "RecruitArticleViewController.h"
+#import "SettingViewController.h"
 
 @interface TabViewController ()<HBTabBarDelegate>
 {
@@ -144,7 +145,9 @@
             
             case ENUM_CAREER_CHANGE_SETTINGS:
             {
-                
+                SettingViewController *tempVC = [[SettingViewController alloc] init];
+                [self addViewController:tempVC];
+                newVC = tempVC;
                 break;
             }
                 
